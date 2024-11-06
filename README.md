@@ -1,4 +1,4 @@
-![unity](Images\WindowsCMDForUnity.png "Unity Windows")
+![unity](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/WindowsCMDForUnity.png "Unity Windows")
 
 # Unity Geliştiricileri İçin Kullanışlı Windows Komutları
 
@@ -11,7 +11,7 @@ Bu paylaşımın amacı unity geliştiricileri için kullanışlı olabileceğin
 * `cd.` komutu ile bulunduğumuz klasörü gidebiliyoruz. 
 * `cd /` komutu ile C: klasörüne gidebiliyoruz. 
 
-![cd_komutu](https://user-images.githubusercontent.com/69583116/102006550-9860 "cd Komutu")
+![cd_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/cd.png "cd Komutu")
 
 ## `mkdir` Komutu
 `mkdir` komutu ile klasör oluşturabiliyoruz. Bu komutun işlevleri şu şekildedir:
@@ -20,7 +20,7 @@ Bu paylaşımın amacı unity geliştiricileri için kullanışlı olabileceğin
 mkdir <klasör_adı>
 ```
 
-![mkdir_komutu](https://user-images.githubusercontent.com/69583116/102006551-9860 "mkdir Komutu")
+![mkdir_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/mkdir.png "mkdir Komutu")
 
 ## `dir` Komutu
 `dir` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. Bu komutun işlevleri şu şekildedir:
@@ -43,7 +43,7 @@ Bu komutlar, özellikle Unity projeleri üzerinde çalışırken, proje yapısı
 * `dir /a-d` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. 
 * `dir /a-h` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. 
 
-![dir_komutu](https://user-images.githubusercontent.com/69583116/102006552-9860 "dir Komutu")
+![dir_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/dir.png "dir Komutu")
 
 ## `copy` Komutu
 `copy` komutu ile dosyaları kopyalamak için kullanılır. Bu komutun kullanımı şu şekildedir:
@@ -52,7 +52,7 @@ Bu komutlar, özellikle Unity projeleri üzerinde çalışırken, proje yapısı
 copy <kaynak_dosya> <hedef_dosya>
 ```
 
-![copy_komutu](https://user-images.githubusercontent.com/69583116/102006553-9860 "copy Komutu")
+![copy_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/copy.png "copy Komutu")
 
 ## `move` Komutu
 `move` komutu ile dosyaları taşımak için kullanılır. Bu komutun kullanımı şu şekildedir:
@@ -61,12 +61,12 @@ copy <kaynak_dosya> <hedef_dosya>
 move <kaynak_dosya> <hedef_dosya>
 ```
 
-![move_komutu](https://user-images.githubusercontent.com/69583116/102006554-9 "move Komutu")
+![move_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/move.png "move Komutu")
 
 ## `ipconfig` Komutu
 `ipconfig` komutu ile tüm geçerli TCP/IP ağ yapılandırma değerlerini görüntüler ve Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP) ve Etki Alanı Adı Sistemi (DNS) ayarlarını yeniler. Parametreler olmadan kullanıldığında, ipconfig tüm bağdaştırıcılar için İnternet Protokolü sürüm 4 (IPv4) ve IPv6 adreslerini, alt ağ maskesini ve varsayılan ağ geçidini görüntüler.
 
-![ipconfig_komutu](https://user-images.githubusercontent.com/69583116/102006554-9860 "ipconfig Komutu")
+![ipconfig_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/ipconfig.png "ipconfig Komutu")
 
 ## `del` Komutu
 `del` komutu ile belitririlen dosya silinir. Bu komutun kullanımı şu şekildedir:
@@ -75,12 +75,12 @@ move <kaynak_dosya> <hedef_dosya>
 del <kaynak_yol>
 ```
 
-![del_komutu](https://user-images.githubusercontent.com/69583116/102006553-9860 "del Komutu")
+![del_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/del.png "del Komutu")
 
 ## `tasklist` Komutu
 `tasklist` komutu ile bilgisayarda çalışan sistemleri listeler.
 
-![tasklist_komutu](https://user-images.githubusercontent.com/69583116/102006554-986 "tasklist Komutu")
+![tasklist_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tasklist.png "tasklist Komutu")
 
 ## `taskkill` Komutu
 `taskkill` komutu, Windows'ta çalışan işlemleri (processes) sonlandırmak için kullanılır. Bu komut, özellikle yanıt vermeyen programları kapatmak veya belirli işlemleri sonlandırmak için kullanışlıdır. İşte `taskkill` komutunun çeşitli kullanım şekilleri:
@@ -104,7 +104,7 @@ Bu komutlar, özellikle Unity geliştirme sürecinde yanıt vermeyen Unity uygul
 
 Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatli kullanılmalıdır.
 
-![taskkill_komutu](https://user-images.githubusercontent.com/69583116/102006554-9860 "taskkill Komutu")
+![taskkill_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/taskkill.png "taskkill Komutu")
 
 ## `ping` Komutu
 `ping` komutu ile belirli bir sunucuya bağlanma ve yanıt alma durumlarını kontrol etmek için kullanılır. Bu komutun kullanımı şu şekildedir:
@@ -112,7 +112,7 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
 * `ping <sunucu_adresi> -t`: Bu komut, belirtilen sunucuya bağlanma ve yanıt alma durumlarını kontrol eder ve her saniye bir kez yanıt alma durumunu kontrol eder.
 * `ping <sunucu_adresi> -n <saniye_sayisi>`: Bu komut, belirtilen sunucuya bağlanma ve yanıt alma durumlarını kontrol eder ve belirtilen saniye sayısı kadar yanıt alma durumunu kontrol eder.
 
-![ping_komutu](https://user-images.githubusercontent.com/69583116/102006555-9860 "ping Komutu")
+![ping_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/ping.png "ping Komutu")
 
 ## `systeminfo` Komutu
 `systeminfo` komutu ile bilgisayarın bilgilerini görüntüler. Bu komutun kullanımı şu şekildedir:
@@ -120,7 +120,7 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
 * `systeminfo /fo csv`: Bu komut, bilgisayarın işletim sistemi, işlemci, ana bilgisayar, kullanıcı, sürücü ve disk bilgisini, csv (comma-separated values) biçiminde görüntüler.
 * `systeminfo /fo list`: Bu komut, bilgisayarın işletim sistemi, işlemci, ana bilgisayar, kullanıcı, sürücü ve disk bilgisini, listeleri (table) biçiminde görüntüler.
 
-![systeminfo_komutu](https://user-images.githubusercontent.com/69583116/102006556- "systeminfo Komutu")
+![systeminfo_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/systeminfo.png "systeminfo Komutu")
 
 ## `tree` Komutu
 `tree` komutu, bir dizinin yapısını görsel olarak gösteren kullanışlı bir Windows komutudur. Bu komut, özellikle karmaşık proje yapılarına sahip Unity projelerinde dosya ve klasör hiyerarşisini anlamak için çok faydalı olabilir. İşte `tree` komutunun çeşitli kullanım şekilleri:
@@ -155,7 +155,7 @@ Bu komut, özellikle büyük Unity projelerinde dosya organizasyonunu anlamak, p
 
 Not: Çok büyük projelerde `/f` parametresini kullanırken dikkatli olun, çünkü çıktı oldukça uzun olabilir.
 
-![tree_komutu](https://user-images.githubusercontent.com/69583116/102006557-9860 "tree Komutu")
+![tree_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tree.png "tree Komutu")
 
 ## `driverquery` Komutu
 `driverquery` komutu, Windows işletim sisteminde yüklü olan sürücülerin (drivers) listesini görüntülemek için kullanılır. Bu komut, özellikle Unity geliştiricileri için donanım uyumluluğu ve performans sorunlarını teşhis etmede yararlı olabilir. İşte `driverquery` komutunun çeşitli kullanım şekilleri:
@@ -187,7 +187,7 @@ Bu komut, Unity projelerinde performans sorunları yaşandığında, özellikle 
 
 Not: Sürücülerle ilgili herhangi bir değişiklik yapmadan önce, sistem yedeği almak ve dikkatli olmak önemlidir.
 
-![driverquery_komutu](https://user-images.githubusercontent.com/69583116/102006558-9860 "driverquery Komutu")
+![driverquery_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/driverquery.png "driverquery Komutu")
 
 ## `getmac` Komutu
 `getmac` komutu, Windows işletim sistemindeki MAC adresini (Media Access Control) görüntüler. Bu komut, özellikle Unity geliştiricileri mac adreslerini, dizinleri ve diğer bağlantıları kontrol etmek için kullanışlıdır. İşte `getmac` komutunun çeş itli kullanım şekilleri:
@@ -197,7 +197,7 @@ Not: Sürücülerle ilgili herhangi bir değişiklik yapmadan önce, sistem yede
 * `getmac /v`: "/v" parametresi, MAC adreslerini daha detaylı bir şekilde görüntüler.
 * `getmac /fo csv`: "/fo csv" parametresi, MAC adreslerini CSV (Comma-Separated Values) formatında görüntüler.
 
-![getmac_komutu](https://user-images.githubusercontent.com/69583116/102006559- "getmac Komutu")
+![getmac_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/getmac.png "getmac Komutu")
 
 ## `powercfg` Komutu
 `powercfg` komutu, Windows işletim sistemindeki performans ve güvenlik ayarlarını yönetmek için kullanılır. Bu komut, özellikle Unity geliştiricileri performans ve güvenlik ayarlarını değiştirmek için kullanışlıdır. İşte `powercfg` komutunun çeşitli kullanı şekilleri:
@@ -208,8 +208,9 @@ Not: Sürücülerle ilgili herhangi bir değişiklik yapmadan önce, sistem yede
 * `powercfg /h`: "/h" parametresi, sistemdeki tüm performans ve güvenlik ayarlarını yeniden başlatır.
 * `powercfg /h /a`: "/h /a" parametresi, sistemdeki tüm performans ayarlarını yeniden başlatır.
 * `powercfg /h /q`: "/h /q" parametresi, sistemdeki tüm güvenlik ayarlarını yeniden başlatır.
+* `powercfg /batteryreport`: "/batteryreport" parametresi, batarya raporunu görüntüler ve bilgisyara kaydedir.
 
-![powercfg_komutu](https://user-images.githubusercontent.com/69583116/102006560- "powercfg Komutu")
+![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg.png "powercfg Komutu")
 
 ## `wmic` Komutu
 `wmic` (Windows Management Instrumentation Command-line) komutu, Windows sistemlerinde sistem yönetimi ve bilgi toplama için güçlü bir araçtır. Unity geliştiricileri için, özellikle donanım bilgilerini toplamak, sistem durumunu kontrol etmek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `wmic` komutunun Unity geliştiricileri için önemli kullanım örnekleri:
@@ -243,14 +244,14 @@ Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, perfor
 
 Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca, Microsoft Windows 11'de `wmic` yerine daha modern `Get-WmiObject` PowerShell cmdlet'i kullanılması önerilmektedir.
 
-![wmic_komutu](https://user-images.githubusercontent.com/69583116/102006561-9860 "wmic Komutu")
+![wmic_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/wmic.png "wmic Komutu")
 
 ## `sc queryex type=service state=all` Komutu
 `sc queryex type=service state=all` komutu, Windows işletim sistemindeki servisleri listeler. Bu komut, özellikle Unity geliştiricileri servislerini incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `sc queryex type=service state=all` komutun çeşitli kullanım şekilleri:
 * `sc queryex type=service state=all`: Bu temel komut, sistemdeki tüm servisleri listeler.
 * `sc queryex type=service state=all | findstr "RUNNING"`: "/findstr" parametresi, sistemdeki tüm servisleri listeler ve "RUNNING" ifadesi içerenlerin sadece adlarını listeler.
 
-![sc_queryex_komutu](https://user-images.githubusercontent.com/69583116/102006562-9 "sc queryex Komutu")
+![sc_queryex_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/sc_queryex_type_service_state_all.png "sc queryex Komutu")
 
 ## `wevtutil qe Application /c:10 /f:text` Komutu
 `wevtutil qe Application /c:10 /f:text` komutu, Windows işletim sistemindeki uygulama olaylarına bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri olayları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `wevtutil qe Application /c:10 /f:text` komutunun çeşitli kullanım şekilleri:
@@ -258,7 +259,7 @@ Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca,
 * `wevtutil qe Application /c:10 /f:text | findstr "Unity"`: "/findstr" parametresi, uygulama olaylarını sıralar ve text formatında listeler ve "Unity" ifadesi içerenlerin sadece adlarını listeler.
 * `wevtutil qe Application /c:10 /f:text | findstr "Unity" /v`: "/findstr /v" parametresi, uygulama olaylarını sıralar ve text formatında listeler ve "Unity" ifadesi içerenlerin sadece adlarını listeler ve sadece olayları gösterir.
 
-![wevtutil_qe_komutu](https://user-images.githubusercontent.com/69583116/1020065 "wevtutil qe Komutu")
+![wevtutil_qe_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/wevtutil_qe_Application_c_10_f_text.png "wevtutil qe Komutu")
 
 ## `netsh wlan show interfaces` Komutu
 `netsh wlan show interfaces` komutu, Windows işletim sistemindeki ağlara bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri ağları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `netsh wlan show interfaces` komutun çeşitli kullanım şekilleri:
@@ -266,16 +267,14 @@ Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca,
 * `netsh wlan show interfaces | findstr "SSID"`: "/findstr" parametresi, sistemdeki tüm ağları listeler ve "SSID" ifadesi içerenlerin sadece adlarını listeler.
 * `netsh wlan show interfaces | findstr "SSID" /v`: "/findstr /v" parametresi, sistemdeki tüm ağları listeler ve "SSID" if adesi içerenlerin sadece adlarını listeler ve sadece ağları gösterir.
 
-![netsh_wlan_show_interfaces_komutu](https://user-images.githubusercontent.com/69583116/102 "netsh wlan show interfaces Komutu")
+![netsh_wlan_show_interfaces_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/netsh_wlan_show_interfaces.png "netsh wlan show interfaces Komutu")
 
-## `chiper` Komutu
-`chiper` komutu, Windows işletim sistemindeki şifrelemeyi kontrol etmek için kullanılır. Bu komut, özellikle Unity geliştiricileri için şifrelemeyi incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `chiper` komutun çeşitli kullanım şekilleri:
-* `chiper`: Bu temel komut, şifreleme ile ilgili bilgileri listeler.
-* `chiper | findstr "KOD"`: "/findstr" parametresi, şifreleme ile ilgili bilgileri listeler ve "KOD" ifadesi içerenlerin sadece adlarını listeler.
-* `chiper | findstr "KOD" /v`: "/findstr /v" parametresi, şifreleme ile ilgili bilgileri listeler ve "KOD" if adesi içerenlerin sadece adlarını listeler ve sadece şifrelemeleri gösterir.
-* `chiper /v`: "/v" parametresi, şifreleme ile ilgili bilgileri listeler ve sadece şifrelemeleri gösterir.
+## `nslookup` Komutu
+`nslookup` komutu, belirli bir web sitesinin veya etki alanının IP adresini bulmak için "nslookup" komutunu kullanabilirsiniz. İşte `nslookup` komutunun çeşitli kullanım şekilleri:
+* `nslookup`: Bu temel komut, sistemdeki tüm ağları listeler.
+* `nslookup | findstr "192.168.1"`: "/findstr" parametresi, sistemdeki tüm ağları listeler ve "192.168.1" ifadesi içerenlerin sadece adlarını listeler.
 
-![chiper_komutu](https://user-images.githubusercontent.com/69583116/102006563-986 "chiper Komutu")
+![nslookup_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/nslookup.png "nslookup Komutu")
 
 ## `tracert` Komutu
 `tracert` komutu, Windows işletim sistemindeki ağlara bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri ağları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `tracert` komutun çeşitli kullanım şekilleri:
@@ -284,7 +283,7 @@ Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca,
 * `tracert | findstr "192.168.1"`: "/findstr" parametresi, sistemdeki tüm ağları listeler ve "192.168.1" ifadesi içerenlerin sadece adlarını listeler.
 * `tracert | findstr "192.168.1" /v`: "/findstr /v" parametresi, sistemdeki tüm ağları listeler ve "192.168.1" if adesi içerenlerin sadece adlarını listeler ve sadece ağları gösterir.
 
-![tracert_komutu](https://user-images.githubusercontent.com/69583116/102006564- "tracert Komutu")
+![tracert_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tracert.png "tracert Komutu")
 
 ## Uyarı
 Bu paylaşım Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileri Bölümü İşletim Sistemleri dersinin ilk vize ödevidir. Sahibi olan Enes Efe Tokta, *6/11/2024-18/11/2024* tarihleri arasında yaptı.
