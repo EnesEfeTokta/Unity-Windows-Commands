@@ -45,12 +45,6 @@ mkdir <klasör_adı>
    dir /a-h
    ```
 
-Her bir komutun çıktısı farklı olacaktır:
-- Temel `dir` komutu normal dosyaları ve klasörleri gösterir.
-- `dir /a` hem normal hem de gizli ve sistem dosyalarını gösterir.
-- `dir /a-d` sadece dosyaları gösterir, klasörleri göstermez.
-- `dir /a-h` gizli olmayan tüm öğeleri (dosyalar ve klasörler) gösterir.
-
 Bu komutlar, özellikle Unity projeleri üzerinde çalışırken, proje yapısını incelemek, gizli dosyaları kontrol etmek veya sadece belirli türdeki öğeleri listelemek için kullanışlı olabilir.
 * `dir /a-d` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. 
 * `dir /a-h` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. 
