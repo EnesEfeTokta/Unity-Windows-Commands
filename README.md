@@ -7,11 +7,29 @@ Bu dokümanın amacı, Unity geliştiricilerine yönelik olarak Windows işletim
 
 ## `cd` Komutu
 `cd` komutu ile klasörler arasında geçiş yapabiliyoruz. Bu komutun işlevleri şu şekildedir:
-* `cd` komutu `cd..` ile bir üst klasörü geçiş yapabiliyoruz. 
-* `cd.` komutu ile bulunduğumuz klasörü gidebiliyoruz. 
-* `cd /` komutu ile C: klasörüne gidebiliyoruz. 
+* 'cd' komutu ile ilgili klasöre geçiş yapılır.
+   '''Shell
+   cd <yol>
+   '''
+   ![cd_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/cd.png "cd Komutu")
 
-![cd_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/cd.png "cd Komutu")
+* `cd..` komutu ile bir üst klasörü geçiş yapabiliyoruz. 
+   '''Shell
+   cd ..
+   '''
+   ![cd_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/cd_point_point.png "cd.. Komutu")
+
+* `cd.` komutu ile bulunduğumuz klasörü gidebiliyoruz.
+   '''Shell
+   cd .
+   '''
+   ![cd_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/cd_point.png "cd Komutu")
+
+* `cd /` komutu ile C: klasörüne gidebiliyoruz.
+   '''Shell
+   cd /
+   '''
+   ![cd_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/cd_slash.png "cd Komutu") 
 
 ## `mkdir` Komutu
 `mkdir` komutu ile klasör oluşturabiliyoruz. Bu komutun işlevleri şu şekildedir:
@@ -312,43 +330,43 @@ Not: Sürücülerle ilgili herhangi bir değişiklik yapmadan önce, sistem yede
    ```Shell
    powercfg
    ```
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg.png "powercfg Komutu")
 
 * `powercfg /a`: "/a" parametresi, sistemdeki tüm performans ayarlarını listeler.
    ```Shell
    powercfg /a
    ```
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg_a.png "powercfg /a Komutu")
 
 * `powercfg /q`: "/q" parametresi, sistemdeki tüm güvenlik ayarlarını listeler.
    ```Shell
    powercfg /q
    ```
-
-* `powercfg /q`: "/q" parametresi, sistemdeki tüm güvenlik ayarlarını listeler.
-   ```Shell
-   powercfg /q
-   ```
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg_q.png "powercfg /q Komutu")
 
 * `powercfg /h`: "/h" parametresi, sistemdeki tüm performans ve güvenlik ayarlarını yeniden başlatır.
    ```Shell
    powercfg /h
    ```
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg_h.png "powercfg /h Komutu")
 
 * `powercfg /h /a`: "/h /a" parametresi, sistemdeki tüm performans ayarlarını yeniden başlatır.
    ```Shell
    powercfg /h /a
    ```
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg_h_a.png "powercfg /h /a Komutu")
 
 * `powercfg /h /q`: "/h /q" parametresi, sistemdeki tüm güvenlik ayarlarını yeniden başlatır.
    ```Shell
    powercfg /h /q
    ```
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg_h_q.png "powercfg /h /q Komutu")
 
 * `powercfg /batteryreport`: "/batteryreport" parametresi, batarya raporunu görüntüler ve bilgisyara kaydedir.
    ```Shell
    powercfg /batteryreport
    ```
-
-![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg.png "powercfg Komutu")
+   ![powercfg_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/powercfg_batteryreport.png "powercfg /batteryreport Komutu")
 
 ## `wmic` Komutu
 `wmic` (Windows Management Instrumentation Command-line) komutu, Windows sistemlerinde sistem yönetimi ve bilgi toplama için güçlü bir araçtır. Unity geliştiricileri için, özellikle donanım bilgilerini toplamak, sistem durumunu kontrol etmek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `wmic` komutunun Unity geliştiricileri için önemli kullanım örnekleri:
@@ -488,21 +506,24 @@ Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca,
 
 ## `tracert` Komutu
 `tracert` komutu, Windows işletim sistemindeki ağlara bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri ağları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `tracert` komutun çeşitli kullanım şekilleri:
+
 * `tracert`: Bu temel komut, sistemdeki tüm ağları listeler.
    ```Shell
    tracert
    ```
+   ![tracert_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tracert.png "tracert Komutu")
 
 * `tracert | findstr "192.168.1"`: "/findstr" parametresi, sistemdeki tüm ağları listeler ve "192.168.1" ifadesi içerenlerin sadece adlarını listeler.
    ```Shell
    tracert | findstr "192.168.1"
    ```
+   ![tracert_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tracert_findstr192_168_1.png "tracert | findstr "192.168.1" Komutu")
 
 * `tracert | findstr "192.168.1" /v`: "/findstr /v" parametresi, sistemdeki tüm ağları listeler ve "192.168.1" if adesi içerenlerin sadece adlarını listeler ve sadece ağları gösterir.
    ```Shell
    tracert | findstr "192.168.1" /v
 
-![tracert_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tracert.png "tracert Komutu")
+![tracert_komutu](https://github.com/EnesEfeTokta/Unity-Windows-Commands/blob/main/Images/tracert_findstr192_168_1_v.png "tracert | findstr 192.168.1 /v Komutu")
 
 ## İletişim
 * [LinkedIn](https://www.linkedin.com/in/enes-efe-tokta/ "Click on Enes Efe Tokta's LikedIn connection link.")
