@@ -1,9 +1,55 @@
 ![unity](Images/WindowsCMDForUnity.png "Unity Windows")
 
+![Static Badge](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white) 
+![Static Badge](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white)
+![Static Badge](https://img.shields.io/badge/Windows_11-0078d4?style=for-the-badge&logo=windows-11&logoColor=white)
+![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Github](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=)
+
+
 # Unity Geliştiricileri İçin Kullanışlı Windows Komutları 
 
 ## Amaç
 Bu dokümanın amacı, Unity geliştiricilerine yönelik olarak Windows işletim sisteminde sıkça kullanılan ve geliştirme sürecini optimize edebilecek komutları kapsamlı bir şekilde sunmaktır. Bu kaynak, geliştiricilerin proje yönetimi, performans izleme ve sistem yapılandırması gibi alanlarda verimliliklerini artırmalarına yardımcı olmayı hedeflemektedir.
+
+## İçerik
+|Komut|Açıklama|Aileye Ait|
+|:---:|:---:|:---|
+| [`cd`](#cd-komutu) | Klasörler arasında geçiş yapabiliyoruz. | `cd`, `cd..`, `cd.`, `cd /`|
+| [`mkdir`](#mkdir-komutu) | Klasör oluşturabiliyoruz. | `mkdir` |
+| [`dir`](#dir-komutu) | Klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. | `dir`, `dir /a`, `dir /a-d`, `dir /a-h` |
+| [`copy`](#copy-komutu) | Dosyaları istediğimiz konuma kopyalayabiliyoruz. | `copy` |
+| [`move`](#move-komutu) | Dosyayı istediğimiz yere taşıyabiliyoruz. | `move` |
+| [`ipconfig`](#ipconfig-komutu) | TCP/IP ağ yapılandırma değerlerini gösterir. | `ipconfig` |
+| [`del`](#del-komutu) | Belirtilen yoldaki dosyayı siler. | `del` |
+| [`tasklist`](#tasklist-komutu) | Çalışan işlemleri gösterir. | `tasklist` |
+| [`taskkill`](#taskkill-komutu) | Çalışan bir işlemi sonlandırır. | `taskkill /im`, `taskkill /f /im`, `taskkill /f /im /t`, `taskkill /f /pid /t` |
+| [`ping`](#ping-komutu) | Belirli bir sunucuya bağlanma ve yanıt alma durumlarını kontrol eder. | `ping`, `ping -t`, `ping -n` |
+| [`systeminfo`](#systeminfo-komutu) | Bilgisayarın bilgilerini görüntüler. | `systeminfo`, `systeminfo /fo csv`, `systeminfo /fo list` |
+| [`tree`](#tree-komutu) | Bir dizinin yapısını görsel olarak gösterir. | `tree`, `tree /f`, `tree /a`, `tree /a /f` |
+| [`perfmon /report`](#perfmon-report-komutu) | Performans izleyicisini açar. | `perfmon /report` |
+| [`nvidia-smi`](#nvidia-smi-komutu) | NVIDIA grafik kartının performansını ve kullanım oranını gösterir. | `nvidia-smi` |
+| [`type`](#type-komutu) | Bir dosya veya metin dosyasının içeriğini gösterir. | `type` |
+| [`findstr`](#findstr-komutu) | Bir dosyada belirtilen kelimeyi bulur. | `findstr` |
+| [`driverquery`](#driverquery-komutu) | Yüklü olan sürücülerin listesini görüntüler. | `driverquery`, `driverquery /v`, `driverquery /fo csv`, `driverquery /si` |
+| [`getmac`](#getmac-komutu) | MAC adresini görüntüler. | `getmac`, `getmac /fo table /nh /v` |
+| [`powercfg`](#powercfg-komutu) | Performans ve güç ayarlarını yönetir. | `powercfg`, ``powercfg /a``, ``powercfg /batteryreport`` |
+| [`xcopy /s /i`](#xcopy-s-i-dosya_yol-dosya_yol-komutu)| Büyük boyuttaki dosya ve dizileri kopyalar. | `xcopy /s /i` |
+| [`wmic`](#wmic-komutu) | Sistem yönetimi ve bilgi toplamak için kullanılan gelişmiş bir komut. | `wmic computersystem get model,name,manufacturer,systemtype`, `wmic cpu get name,numberofcores,maxclockspeed`, `wmic memorychip get capacity,speed`, `wmic diskdrive get model,size,status`, `wmic os get caption,version,osarchitecture`, `wmic path win32_VideoController get name,adapterram,driverversion`, `wmic process where "name like '%Unity%'" get name,processid,commandline`, `wmic cpu get loadpercentage`, `wmic memorychip get capacity`, `wmic process call create "C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Unity.exe -projectPath C:\UnityProjects\MyGame -batchmode -quit -logFile C:\buildlog.txt -buildWindows64Player C:\Builds\MyGame.exe"` |
+| [`sc queryex type=service state=all`](#sc-queryex-typeservice-stateall-komutu) | Servisleri listelemeye yarar. | `sc queryex type=service state=all`, `sc queryex type=service state=all \| findstr "RUNNING"` |
+| [`wevtutil qe Application /c:10 /f:text`](#wevtutil-qe-application-c10-ftext-komutu) | Uygulama olaylarını takip etmekte kullanışlıdır. | `wevtutil qe Application /c:10 /f:text`, `wevtutil qe Application /c:10 /f:text \| findstr "Unity"`, `wevtutil qe Application /c:10 /f:text \| findstr "Unity" /v` |
+| [`netsh wlan show interfaces`](#netsh-wlan-show-interfaces-komutu) | Ağlara bakmak için kullanılır. | `netsh wlan show interfaces`, `netsh wlan show interfaces \| findstr "SSID"`, `netsh wlan show interfaces \| findstr "SSID" /v` |
+| [`nslookup`](#nslookup-komutu) | Belirli bir yerin IP adresini bulur. | `nslookup` |
+| [`tracert`](#tracert-komutu) | Ağlara bakmak için kullanışlıdır. | `tracert`, `tracert \| findstr "192.168.1"` |
+
+## Kaynaklar
+|Bağlantı Linki|Kaynak|
+|:---:|:---:|
+| [Medium](https://mirzaleka.medium.com/getting-started-with-windows-command-prompt-5e326f894dd0) | ![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white) |
+| [Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands) | ![Microsoft Learn](https://img.shields.io/badge/Microsoft_Learn-258ffa?style=for-the-badge&logo=microsoft&logoColor=white) |
+| [YouTube](https://www.youtube.com/watch?v=_km5A8KC5e0) | ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
+
 
 ## `cd` Komutu 
 `cd` komutu ile klasörler arasında geçiş yapabiliyoruz. Bu komutun işlevleri şu şekildedir:
@@ -33,7 +79,9 @@ Bu dokümanın amacı, Unity geliştiricilerine yönelik olarak Windows işletim
    ![cd_komutu](Images/cd_slash.png "cd Komutu ") 
 
 ## `mkdir` Komutu  
-`mkdir` komutu ile klasör oluşturabiliyoruz. Bu komutun işlevleri şu şekildedir:
+Unity projelerinde dosya ve klasör yapısının düzenli olması önemlidir. `mkdir` komutu, komut satırından yeni klasörler oluşturmanıza olanak tanır ve proje dosyalarınızı düzenlerken size hız kazandırır. Özellikle sürüm kontrol sistemleri kullanırken ya da projeyi ilk oluşturma aşamasında klasörleri hazırlarken faydalıdır.
+
+Aşağıdaki gibi temel bir `mkdir` komutu ile hızlıca klasör oluşturabilirsiniz:
 
 ```DOS
 mkdir <klasör_adı>
@@ -42,35 +90,38 @@ mkdir <klasör_adı>
 ![mkdir_komutu](Images/mkdir.png "mkdir Komutu ")
 
 ## `dir` Komutu  
-`dir` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. Bu komutun işlevleri şu şekildedir:
+`dir` komutu, klasörlerde bulunan dosya ve klasörleri listelemek için kullanılır. Unity projelerinde dosya yapısını hızlıca kontrol etmek veya sistem ve gizli dosyalar gibi belirli dosya türlerini incelemek için özellikle faydalıdır. `dir` komutunun çeşitli seçenekleri ile dizinlerde hızlı gezinme ve belirli dosyaları listeleme işlemlerini detaylandırabilirsiniz.
 
-* `dir` komutu: Bu, temel `dir` komutudur. Mevcut dizindeki dosyaları ve klasörleri listeler. Gizli dosyaları ve sistem dosyalarını varsayılan olarak göstermez.
-   ```DOS
-   dir
-   ```
-   ![dir_komutu](Images/dir.png "dir Komutu  ")
+### `dir` Komutunun Temel Kullanımı
+`dir`: Bu, en temel dir komutudur ve mevcut dizindeki dosyalar ve klasörleri listeler. Gizli veya sistem dosyalarını göstermez.
 
-* `dir /a` komutu: "/a" parametresi "all" (tümü) anlamına gelir. Bu komut, gizli dosyalar ve sistem dosyaları da dahil olmak üzere mevcut dizindeki tüm dosyaları ve klasörleri gösterir.
+```DOS
+dir
+```
+
+![dir_komutu](Images/dir.png "dir Komutu  ")
+
+### `dir` Komutunun Farklı Seçenekleri
+* `dir /a`, gizli dosyalar ve sistem dosyaları dahil olmak üzere mevcut dizindeki tüm dosyaları ve klasörleri listeler. Unity projelerinde gizli veya sistem dosyalarını görmek, proje içinde görünmeyen dosyaları bulmak için kullanışlıdır.
    ```DOS
    dir /a
    ```
    ![dir_komutu](Images/dir_a.png "dir /a Komutu  ")
 
-* `dir /a-d` komutu: Bu komut, sadece dosyaları gösterir, klasörleri göstermez. "/a-d" parametresindeki "-d" kısmı "directories" (klasörler) anlamına gelir ve bunları hariç tutar.
+* `dir /a-d`, yalnızca dosyaları listeler ve klasörleri göstermez. Klasörleri hariç tutarak sadece dosya listesi elde etmeniz gerekiyorsa yararlıdır. Örneğin, Assets klasörünüzde yalnızca dosyaları listelemek istiyorsanız kullanabilirsiniz.
    ```DOS
    dir /a-d
    ```
    ![dir_komutu](Images/dir_a_d.png "dir /a-d Komutu  ")
 
-* `dir /a-h` komutu: Bu komut, gizli olmayan tüm dosyaları ve klasörleri gösterir. "/a-h" parametresindeki "-h" kısmı "hidden" (gizli) anlamına gelir ve gizli dosyaları hariç tutar.
+* `dir /a-h` komutu, gizli olmayan tüm dosyaları ve klasörleri gösterir. Bu komut, yalnızca görünür dosyaları görmek ve gizli dosyaları dışarıda bırakmak istediğinizde işinize yarar. Unity projelerindeki belirli dosyaları görmek veya gizli dosyaları dışarıda bırakmak istediğinizde kullanabilirsiniz.
    ```DOS
    dir /a-h
    ```
    ![dir_komutu](Images/dir_a_h.png "dir /a-h Komutu  ")
 
-Bu komutlar, özellikle Unity projeleri üzerinde çalışırken, proje yapısını incelemek, gizli dosyaları kontrol etmek veya sadece belirli türdeki öğeleri listelemek için kullanışlı olabilir.
-* `dir /a-d` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. 
-* `dir /a-h` komutu ile klasörlerde bulunan dosyaları ve klasörleri görebiliyoruz. 
+### Özetle `dir` Komutunun Unity Projelerinde Kullanımı
+Bu komutlar, Unity projelerinde çeşitli durumlarda, örneğin gizli dosyaları kontrol etme, sadece dosya veya klasörleri listeleme ve proje yapısını hızlıca inceleme gibi durumlarda fayda sağlar. Komutlar, belirli parametrelerle kullanılarak ihtiyaca yönelik dizin görüntülemeleri sağlar.
 
 ## `copy` Komutu  
 `copy` komutu ile dosyaları kopyalamak için kullanılır. Bu komutun kullanımı şu şekildedir:
@@ -118,27 +169,28 @@ tasklist
 ![tasklist_komutu](Images/tasklist.png "tasklist Komutu  ")
 
 ## `taskkill` Komutu  
-`taskkill` komutu, Windows'ta çalışan işlemleri (processes) sonlandırmak için kullanılır. Bu komut, özellikle yanıt vermeyen programları kapatmak veya belirli işlemleri sonlandırmak için kullanışlıdır. İşte `taskkill` komutunun çeşitli kullanım şekilleri:
+`taskkill` komutu, Windows işletim sisteminde çalışan işlemleri (processes) sonlandırmak için kullanılır. Özellikle yanıt vermeyen programları kapatmak veya belirli işlemleri hızlıca sonlandırmak istediğinizde bu komut oldukça faydalıdır. Aşağıda `taskkill` komutunun çeşitli kullanım örnekleri ve Unity geliştirme sürecinde nasıl yararlı olabileceği açıklanmaktadır.
 
-* `taskkill /im <process_name>`: Bu komut, belirtilen isme sahip işlemi nazikçe kapatmaya çalışır. İşlem normal şekilde kapatılır.
+### `taskkill` Komutunun Kullanım Şekilleri 
+* `taskkill /im <process_name>`: Bu komut, belirtilen işlem adını kullanarak işlemi nazikçe sonlandırmaya çalışır. Normal bir kapatma işlemidir. Unity veya başka bir yazılımda hafif sorunlarla karşılaştığınızda kullanabilirsiniz.
    ```DOS
    taskkill /im  Notepad.exe
    ```
    ![taskkill_komutu](Images/taskkill_im.png "taskkill /im Komutu  ")
 
-* `taskkill /f /im <process_name>`: "/f" parametresi "force" (zorla) anlamına gelir. Bu komut, belirtilen işlemi zorla kapatır. İşlem anında sonlandırılır.
+* `taskkill /f /im <process_name>`: "/f" parametresi ("force") ile komut, işlemi zorla kapatır. İşlem, doğrudan sonlandırılır. Bu, yanıt vermeyen veya donmuş Unity uygulamalarını kapatmak için idealdir.
    ```DOS
    taskkill /f /im chrome.exe
    ```
    ![taskkill_komutu](Images/taskkill_f_im.png " taskkill /f /im Komutu ")
 
-* `taskkill /f /im <process_name> /t`: "/t" parametresi "tree" (ağaç) anlamına gelir. Bu komut, belirtilen işlemi ve onun başlattığı tüm alt işlemleri zorla kapatır.
+* `taskkill /f /im <process_name> /t`: "/t" parametresi ile birlikte, belirtilen işlem ve başlattığı tüm alt işlemler zorla kapatılır. Birden fazla işlemi sonlandırmak istediğinizde, özellikle Unity'nin dışa aktardığı alt süreçleri veya bağlı uygulamaları kapatmak için kullanışlıdır.
    ```DOS
    taskkill /f /im  Notepad.exe /t
    ```
    ![taskkill_komutu](Images/taskkill_f_im_t.png "taskkill /f /im /t Komutu ")
 
-* `taskkill /f /pid <process_id> /t`: Bu komut, belirli bir PID'ye sahip işlemi ve onun tüm alt işlemlerini zorla kapatır.
+* `taskkill /f /pid <process_id> /t`: Belirli bir PID'ye (Process ID) sahip işlemi ve onun tüm alt işlemlerini zorla kapatır. PID'yi öğrenmek için "tasklist" komutunu kullanabilirsiniz. Test veya performans sorunlarında yalnızca belirli bir süreci sonlandırmak istediğinizde faydalıdır.
    ```DOS
    taskkill /f /pid 1234 /t
    ```
@@ -148,10 +200,10 @@ tasklist
 
 Bu komutlar, özellikle Unity geliştirme sürecinde yanıt vermeyen Unity uygulamalarını veya editörünü kapatmak, performans sorunlarına neden olan arka plan işlemlerini sonlandırmak veya test amaçlı olarak belirli işlemleri kontrollü bir şekilde kapatmak için kullanışlı olabilir.
 
- Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatli kullanılmalıdır.
+Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatli kullanılmalıdır.
 
 ## `ping` Komutu 
-`ping` komutu ile belirli bir sunucuya bağlanma ve yanıt alma durumlarını kontrol etmek için kullanılır. Bu komutun kullanımı şu şekildedir:
+`ping` komutu, belirli bir sunucuya bağlantı kurarak yanıt alma durumunu ve ağ gecikmesini kontrol etmek için kullanılan temel bir ağ aracıdır. Bu komut, sunucunun erişilebilir olup olmadığını ve bağlantının ne kadar hızlı yanıt verdiğini ölçmeye yarar. Aşağıda `ping` komutunun çeşitli kullanım örnekleri verilmiştir:
 * `ping <sunucu_adresi>`: Bu komut, belirtilen sunucuya bağlanma ve yanıt alma durumlarını kontrol eder
    ```DOS
    ping www.google.com
@@ -452,13 +504,6 @@ xcopy /s /i "Dosya_Yol" "Dosya_Yol"
       ```DOS	
       wmic process call create wmic process call create "C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Unity.exe -projectPath C:\UnityProjects\MyGame -batchmode -quit -logFile C:\buildlog.txt -buildWindows64Player C:\Builds\MyGame.exe"
       ```
-
-7. Sistem Günlüklerini İncelemek:
-   * `wmic nteventlog get path,filename,writedate`: Sistem olay günlüklerini listeler.
-      ```DOS
-      wmic nteventlog get path,filename,writedate
-      ```
-      ![wmic_komutu](Images/wmic_nteventlog_get_path_filename_writedate.png "wmic nteventlog get path filename writedate Komutu ")
 
 Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, performans sorunlarını teşhis etmelerine ve otomatik derleme süreçleri oluşturmalarına yardımcı olabilir. Ayrıca, farklı test ortamlarında tutarlı sistem bilgileri toplamak için de kullanışlıdır.
 
