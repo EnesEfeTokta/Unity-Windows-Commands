@@ -42,6 +42,10 @@ Bu dokümanın amacı, Unity geliştiricilerine yönelik olarak Windows işletim
 | 24 | [`netsh wlan show interfaces`](#netsh-wlan-show-interfaces-komutu) | Ağlara bakmak için kullanılır. | `netsh wlan show interfaces`, `netsh wlan show interfaces \| findstr "SSID"`, `netsh wlan show interfaces \| findstr "SSID" /v` |
 | 25 | [`nslookup`](#nslookup-komutu) | Belirli bir yerin IP adresini bulur. | `nslookup` |
 | 26 | [`tracert`](#tracert-komutu) | Ağlara bakmak için kullanışlıdır. | `tracert`, `tracert \| findstr "192.168.1"` |
+| 27 | [`echo`](#echo-komutu) | Metin yazdırmak için kullanılır. | `echo` |
+| 28 | [`schtasks`](#schtasks-komutu) | Belirli görevleri otomotikleştiriyor. | `schtasks`, `schtasks \| findstr "Unity"`, `schtasks /query`, `schtasks /query /fo csv`, `schtasks /create /tn "Görev Adı" /tr "Görev Komutu" /sc schedule_type /st start_time /sd start_date`, `schtasks /run /tn "Görev Adı"`, `schtasks /delete /tn "Görev Adı"`, `schtasks /change /tn "Görev Adı" /tr "Görev Komutu"` |
+| 29 | [`exit`](#exit-komutu) | Komutları sonlandırır ve terminali kapatır. | `exit` |
+| 30 | [`for`](#for-komutu) | Döngü oluşturmakta kullanışlıdır. | `for %i in (*.txt) do echo %i`, `for %i in ("Hedef_Dizin\*.txt") do copy "%i" "Taşınacak_Dizin"`, `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"`, `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"` |
 
 ## Kaynaklar
 |Bağlantı Linki|Kaynak|
@@ -588,6 +592,112 @@ nslookup
    tracert | findstr "192.168.1"
    ```
    ![tracert_komutu](Images/tracert_findstr_192_168_1.png "tracert | findstr 192.168.1 Komutu ")
+
+## `echo` Komutu 
+`echo` komutu, bir metin yazdırmak için kullanılır. İşte `echo` komutunun çeşitli kullanım şekli:
+```DOS
+echo Hello World!
+```
+![echo_komutu](Images/echo.png "echo Komutu ")
+
+## `schtasks` Komutu 
+`schtasks` komutu, Windows işletim sisteminde belirli görevleri otomatik olarak çalıştırmak için kullanılan bir komut satırı aracıdır. Bu görevler, belirli zamanlarda, belirli aralıklarla veya belirli olaylara bağlı olarak tetiklenebilir. Örneğin, bir dosyayı düzenli olarak yedeklemek, bir programı belirli saatte başlatmak veya sisteminizi otomatik olarak kapatmak gibi işlemleri schtasks komutu ile gerçekleştirebilirsiniz.
+
+### `schtasks` Komutunun Farklı Kullanım Şekilleri
+
+* `schtasks`: Bu temel komut, sistemdeki tüm görevleri listeler.
+   ```DOS
+   schtasks
+   ```
+   ![schtasks_komutu](Images/schtasks.png "schtasks Komutu ")
+
+* `schtasks | findstr "Unity"`: "/findstr" parametresi, sistemdeki tüm görevleri listeler ancak sadece "Unity" ifadesi içerenlerin sadece adlarını listeler.
+   ```DOS
+   schtasks | findstr "StartComponentCleanup"
+   ```
+   ![schtasks_komutu](Images/schtasks_findstr.png "schtasks | findstr Unity Komutu ")
+
+* `schtasks /query`: Bu komut komutu, sistemdeki tüm görevleri listeleri deaylı şeklilde gösterir.
+   ```DOS
+   schtasks /query
+   ```
+   ![schtasks_komutu](Images/schtasks_query.png "schtasks /query Komutu ")
+
+* `schtasks /query /fo csv`: Bu komut, sistemdeki tüm görevleri listeler ve CSV formatında gösterir.
+   ```DOS
+   schtasks /query /fo csv
+   ```
+   ![schtasks_komutu](Images/schtasks_query_fo_csv.png "schtasks /query /fo csv Komutu ")
+
+* `schtasks /create /tn "Görev Adı" /tr "Görev Komutu" /sc schedule_type /st start_time /sd start_date` : Bu komut, belirli bir görev oluşturur.
+   ```DOS
+   schtasks /create /tn "Night Backup" /tr "C:\Users\EnesEfeTokta" /sc daily /st 23:00
+   ```
+   ![schtasks_komutu](Images/schtasks_create_tn_tr_sc_st_sd.png "schtasks /create Komutu ")
+
+   Bu komut ile pek çok görev oluşturulabilir. Örnek olarak bazı görevler:
+   1) `schtasks /create /tn "Haftalık Rapor" /tr "C:\Rapor.bat" /sc weekly /d MON /st 09:00` bu komut ile haftalık olarak bir rapor oluşturulabilir.
+   2) `schtasks /create /tn "Gündelik Rapor" /tr "C:\Rapor.bat" /sc once /st 09:00` bu komut ile gündelik olarak bir rapor oluşturulabilir.
+   3) `schtasks /create /tn "Cuma Kapatma" /tr "shutdown -s -t 0" /sc weekly /d FRI /st 23:59` bu komut ile Cuma günü 23:59'da sistem kapatılabilir.
+
+* `schtasks /run /tn "Görev Adı"`: Bu komut, belirli bir görevi çalıştırır.
+   ```DOS
+   schtasks /run /tn "Night Backup"
+   ```
+   ![schtasks_komutu](Images/schtasks_run_tn.png "schtasks /run Komutu")
+
+* `schtasks /delete /tn "Görev Adı"`: Bu komut, belirli bir görevi siler.
+   ```DOS
+   schtasks /delete /tn "Night Backup"
+   ```
+   ![schtasks_komutu](Images/schtasks_delete_tn.png "schtasks /delete Komutu")
+
+* `schtasks /change /tn "Görev Adı" /tr "Görev Komutu"`: Bu komut, belirli bir görevi değiştirir.
+   ```DOS
+   schtasks /change /tn "Night Backup" /tr "C:\Users\EnesEfeTokta\Rapor.bat"
+   ```
+   ![schtasks_komutu](Images/schtasks_change_tn_tr_delete.png "schtasks /change Komutu")
+
+Bu komutlara ek olarak isterseniz görev listenizi "Görev Zamanlayıcı" sayfasından görev ekleme, değiştirme ve silme işlemlerini yapabilirsiniz.
+
+## `exit` Komutu 
+`exit` komutu, Windows işletim sistemindeki komutların sonlandırılmasını sağlar ve terminali kapatır.
+```DOS
+exit
+```
+![exit_komutu](Images/exit.png "exit Komutu")
+
+## `for` Komutu 
+`for` komutu, bir döngü oluşturmak için kullanılır. `For` komutu iki tane parametre alır. İlk parametre döngüyü oluşturmak için kullanılan ifadeyi, ikinci parametre ise döngüye dahil olan değerleri belirtir. Örneğin, bu örnek bir dizinde ki .txt uzantılı dosyaları taramak için kullanılır.
+```DOS
+for %i in (*.txt) do echo %i
+ ```
+![for_komutu](Images/for_echo.png "For Komutu")
+
+Bu örnek basit bir ancak `For` ile pek çok şay yapılabiliyor. `For` komutu, herhangi bir dosya veya klasör içindeki dosyaları veya klasörleri tek tek tarayarak istediğiniz işlemleri yapabilirsiniz.
+
+Not: Bu komutların betik dosyasında (.bat veya .cmd) çalıştırılması durumunda % sembolünü %% ile değiştirmek zorunludur.
+
+### Basit `For` Komutu Örnekleri
+Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
+
+* `for %i in ("Hedef_Dizin\*.txt") do copy "%i" "Taşınacak_Dizin"` Bu komut, "Hedef_Dizin\*.txt" klasöründeki tüm.txt uzantılı dosyaları "Taşınacak_Dizin" klasörüne kopyalar.
+   ```DOS
+   for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do copy "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"
+   ```
+   ![for_komutu](Images/for_file_copy.png "For Komutu")
+
+* `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"` Bu komut, "C:\Users\EnesEfeTokta\Desktop\*.txt" klasöründeki tüm .txt uzantılı dosyaları "C:\Users\EnesEfeTokta\Desktop\Dizin_adi" klasörüne taşır.
+   ```DOS
+   for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"
+   ```
+   ![for_komutu](Images/for_file_move.png "For Komutu")
+
+* `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"` Bu komut, "C:\Users\EnesEfeTokta\Desktop\*.txt" klasöründeki tüm.txt uzantılı dosyaları siler.
+   ```DOS
+   for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"
+   ```
+   ![for_komutu](Images/for_file_delete.png "For Komutu")
 
 ## İletişim
 * [LinkedIn](https://www.linkedin.com/in/enes-efe-tokta/ "Click on Enes Efe Tokta's LikedIn connection link.")
