@@ -54,26 +54,26 @@ Lütfen bu komutları kendi cihazınızda test ederken dikkatli olununuz. Bazı 
 ## `cd` Komutu 
 `cd` komutu ile klasörler arasında geçiş yapabiliyoruz. Unity geliştiricileri proje dizinleri arasında gezintiler yapabilirler. Bu komutun işlevleri şu şekildedir:
 *  `cd` komutu ile ilgili klasöre geçiş yapılır.
-   ```DOS   
+   ```dos   
    cd <klasör_adı>
    ```
    ![cd_komutu](Images/cd.png "cd Komutu ")
 
 * `cd..` komutu ile bir üst klasörü geçiş yapabiliyoruz. 
-   ```DOS
+   ```dos
    cd..
    ```
 
    ![cd_komutu](Images/cd_pointpoint.png "cd.. Komutu  ")
 
 * `cd.` komutu ile bulunduğumuz klasörü gidebiliyoruz.
-   ```DOS
+   ```dos
    cd.
    ```
    ![cd_komutu](Images/cd_point.png "cd Komutu ")
 
 * `cd /` komutu ile C: klasörüne gidebiliyoruz.
-   ```DOS
+   ```dos
    cd /
    ```
    ![cd_komutu](Images/cd_slash.png "cd Komutu ") 
@@ -83,7 +83,7 @@ Unity projelerinde dosya ve klasör yapısının düzenli olması önemlidir. `m
 
 Aşağıdaki gibi temel bir `mkdir` komutu ile hızlıca klasör oluşturabilirsiniz:
 
-```DOS
+```dos
 mkdir <klasör_adı>
 ```
 
@@ -95,7 +95,7 @@ mkdir <klasör_adı>
 ### `dir` Komutunun Temel Kullanımı
 `dir`: Bu, en temel dir komutudur ve mevcut dizindeki dosyalar ve klasörleri listeler. Gizli veya sistem dosyalarını göstermez.
 
-```DOS
+```dos
 dir
 ```
 
@@ -103,19 +103,19 @@ dir
 
 ### `dir` Komutunun Farklı Seçenekleri
 * `dir /a`, gizli dosyalar ve sistem dosyaları dahil olmak üzere mevcut dizindeki tüm dosyaları ve klasörleri listeler. Unity projelerinde gizli veya sistem dosyalarını görmek, proje içinde görünmeyen dosyaları bulmak için kullanışlıdır.
-   ```DOS
+   ```dos
    dir /a
    ```
    ![dir_komutu](Images/dir_a.png "dir /a Komutu  ")
 
 * `dir /a-d`, yalnızca dosyaları listeler ve klasörleri göstermez. Klasörleri hariç tutarak sadece dosya listesi elde etmeniz gerekiyorsa yararlıdır. Örneğin, Assets klasörünüzde yalnızca dosyaları listelemek istiyorsanız kullanabilirsiniz.
-   ```DOS
+   ```dos
    dir /a-d
    ```
    ![dir_komutu](Images/dir_a_d.png "dir /a-d Komutu  ")
 
 * `dir /a-h` komutu, gizli olmayan tüm dosyaları ve klasörleri gösterir. Bu komut, yalnızca görünür dosyaları görmek ve gizli dosyaları dışarıda bırakmak istediğinizde işinize yarar. Unity projelerindeki belirli dosyaları görmek veya gizli dosyaları dışarıda bırakmak istediğinizde kullanabilirsiniz.
-   ```DOS
+   ```dos
    dir /a-h
    ```
    ![dir_komutu](Images/dir_a_h.png "dir /a-h Komutu  ")
@@ -126,7 +126,7 @@ Bu komutlar, Unity projelerinde çeşitli durumlarda, örneğin gizli dosyaları
 ## `copy` Komutu  
 `copy` komutu ile dosyaları kopyalamak için kullanılır. Bu komutun kullanımı şu şekildedir:
 
-```DOS
+```dos
 copy <kaynak_dosya> <hedef_dosya>
 ```
 
@@ -135,7 +135,7 @@ copy <kaynak_dosya> <hedef_dosya>
 ## `move` Komutu  
 `move` komutu ile dosyaları taşımak için kullanılır. Bu komutun kullanımı şu şekildedir:
 
-```DOS
+```dos
 move <kaynak_dosya> <hedef_dosya>
 ```
 
@@ -144,7 +144,7 @@ move <kaynak_dosya> <hedef_dosya>
 ## `ipconfig` Komutu  
 `ipconfig` komutu ile tüm geçerli TCP/IP ağ yapılandırma değerlerini görüntüler ve Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP) ve Etki Alanı Adı Sistemi (DNS) ayarlarını yeniler. Parametreler olmadan kullanıldığında, ipconfig tüm bağdaştırıcılar için İnternet Protokolü sürüm 4 (IPv4) ve IPv6 adreslerini, alt ağ maskesini ve varsayılan ağ geçidini görüntüler.
 
-```DOS
+```dos
 ipconfig
 ```
 
@@ -153,7 +153,7 @@ ipconfig
 ## `del` Komutu  
 `del` komutu ile belitririlen dosya silinir. Bu komutun kullanımı şu şekildedir:
 
-```DOS
+```dos
 del <kaynak_yol>
 ```
 
@@ -162,7 +162,7 @@ del <kaynak_yol>
 ## `tasklist` Komutu  
 `tasklist` komutu ile bilgisayarda çalışan sistemleri listeler.
 
-```DOS
+```dos
 tasklist
 ```
 
@@ -173,25 +173,25 @@ tasklist
 
 ### `taskkill` Komutunun Kullanım Şekilleri 
 * `taskkill /im <process_name>`: Bu komut, belirtilen işlem adını kullanarak işlemi nazikçe sonlandırmaya çalışır. Normal bir kapatma işlemidir. Unity veya başka bir yazılımda hafif sorunlarla karşılaştığınızda kullanabilirsiniz.
-   ```DOS
+   ```dos
    taskkill /im  Notepad.exe
    ```
    ![taskkill_komutu](Images/taskkill_im.png "taskkill /im Komutu  ")
 
 * `taskkill /f /im <process_name>`: "/f" parametresi ("force") ile komut, işlemi zorla kapatır. İşlem, doğrudan sonlandırılır. Bu, yanıt vermeyen veya donmuş Unity uygulamalarını kapatmak için idealdir.
-   ```DOS
+   ```dos
    taskkill /f /im chrome.exe
    ```
    ![taskkill_komutu](Images/taskkill_f_im.png " taskkill /f /im Komutu ")
 
 * `taskkill /f /im <process_name> /t`: "/t" parametresi ile birlikte, belirtilen işlem ve başlattığı tüm alt işlemler zorla kapatılır. Birden fazla işlemi sonlandırmak istediğinizde, özellikle Unity'nin dışa aktardığı alt süreçleri veya bağlı uygulamaları kapatmak için kullanışlıdır.
-   ```DOS
+   ```dos
    taskkill /f /im  Notepad.exe /t
    ```
    ![taskkill_komutu](Images/taskkill_f_im_t.png "taskkill /f /im /t Komutu ")
 
 * `taskkill /f /pid <process_id> /t`: Belirli bir PID'ye (Process ID) sahip işlemi ve onun tüm alt işlemlerini zorla kapatır. PID'yi öğrenmek için "tasklist" komutunu kullanabilirsiniz. Test veya performans sorunlarında yalnızca belirli bir süreci sonlandırmak istediğinizde faydalıdır.
-   ```DOS
+   ```dos
    taskkill /f /pid 1234 /t
    ```
    ![taskkill_komutu](Images/taskkill_f_pid_t.png "taskkill /f /pid /t Komutu ")
@@ -205,19 +205,19 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
 ## `ping` Komutu 
 `ping` komutu, belirli bir sunucuya bağlantı kurarak yanıt alma durumunu ve ağ gecikmesini kontrol etmek için kullanılan temel bir ağ aracıdır. Bu komut, sunucunun erişilebilir olup olmadığını ve bağlantının ne kadar hızlı yanıt verdiğini ölçmeye yarar. Aşağıda `ping` komutunun çeşitli kullanım örnekleri verilmiştir:
 * `ping <sunucu_adresi>`: Bu komut, belirtilen sunucuya bağlanma ve yanıt alma durumlarını kontrol eder
-   ```DOS
+   ```dos
    ping www.google.com
    ```
    ![ping_komutu](Images/ping.png "ping Komutu ")
 
 * `ping <sunucu_adresi> -t`: Bu komut, belirtilen sunucuya bağlanma ve yanıt alma durumlarını kontrol eder ve her saniye bir kez yanıt alma durumunu kontrol eder.
-   ```DOS
+   ```dos
    ping www.google.com -t
    ```
    ![ping_komutu](Images/ping_t.png "ping Komutu ")
 
 * `ping <sunucu_adresi> -n <saniye_sayisi>`: Bu komut, belirtilen sunucuya bağlanma ve yanıt alma durumlarını kontrol eder ve belirtilen saniye sayısı kadar yanıt alma durumunu kontrol eder.
-   ```DOS
+   ```dos
    ping www.google.com -n 10
    ```
    ![ping_komutu](Images/ping_n.png "ping Komutu ")
@@ -225,19 +225,19 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
 ## `systeminfo` Komutu 
 `systeminfo` komutu ile bilgisayarın bilgilerini görüntüler. Bu komutun kullanımı şu şekildedir:
 * `systeminfo`: Bu komut, bilgisayarın işletim sistemi, işlemci, ana bilgisayar, kullanıcı, sürücü ve disk bilgisini, görüntüsü ve bağlantı bilgilerini görüntüler.
-   ```DOS
+   ```dos
    systeminfo
    ```
    ![systeminfo_komutu](Images/systeminfo.png "systeminfo Komutu ")
 
 * `systeminfo /fo csv`: Bu komut, bilgisayarın işletim sistemi, işlemci, ana bilgisayar, kullanıcı, sürücü ve disk bilgisini, csv (comma-separated values) biçiminde görüntüler.
-   ```DOS
+   ```dos
    systeminfo /fo csv
    ```
    ![systeminfo_komutu](Images/systeminfo_fo_csv.png "systeminfo Komutu ")
 
 * `systeminfo /fo list`: Bu komut, bilgisayarın işletim sistemi, işlemci, ana bilgisayar, kullanıcı, sürücü ve disk bilgisini, listeleri (table) biçiminde görüntüler.
-   ```DOS
+   ```dos
    systeminfo /fo list
    ```
    ![systeminfo_komutu](Images/systeminfo_fo_l.png "systeminfo Komutu ")
@@ -247,13 +247,13 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
 
 ### `tree` Komutunun Kullanım Şekilleri
 * `tree <dizin_yolu>`: Bu temel komut, belirtilen dizinin alt dizinlerini ve klasör yapısını gösterir. Dosyaları göstermez.
-   ```DOS
+   ```dos
    tree C:\UnityProjects\MyGame
    ```
    ![tree_komutu](Images/tree.png "tree Komutu ")
 
 * `tree <dizin_yolu> /f`: "/f" parametresi "files" (dosyalar) anlamına gelir. Bu komut, dizin yapısını gösterirken her klasördeki dosyaları da listeler.
-   ```DOS
+   ```dos
    tree C:\UnityProjects\MyGame /f
    ```
    ![tree_komutu](Images/tree_f.png "tree /f Komutu ")
@@ -263,7 +263,7 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
     Not 2: Çıktının uzunluğu fazla olduğu için ekranda ufak bir bir bölümü gösteridim.
 
 * `tree <dizin_yolu> /a`: "/a" parametresi "ASCII" anlamına gelir. Bu komut, dizin yapısını gösterirken ASCII karakterleri kullanır. Bu, özellikle çıktıyı bir metin dosyasına yönlendirirken veya bazı konsolların grafik karakterleri düzgün göstermediği durumlarda faydalıdır.
-   ```DOS
+   ```dos
    tree C:\UnityProjects\MyGame /a
    ```
    ![tree_komutu](Images/tree_a.png "tree /a Komutu ")
@@ -271,7 +271,7 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
     Not: Çıktının uzunluğu fazla olduğu için ekranda ufak bir bir bölümü gösteridim.
 
 * `tree <dizin_yolu> /a /f`: Bu komut, ASCII karakterleri kullanarak hem dizin yapısını hem de dosyaları gösterir.
-   ```DOS
+   ```dos
    tree C:\UnityProjects\MyGame /a /f
    ```
    ![tree_komutu](Images/tree_a_f.png "tree /a /f Komutu ")
@@ -297,7 +297,7 @@ Bu komut, özellikle büyük Unity projelerinde dosya organizasyonunu anlamak, p
 
 ## `perfmon /report` Komutu 
 `perfmon /report` komutu, performans izleyicisini açar. Cihazın performansını ölçülmesine olanak sağlar.
-```DOS
+```dos
 perfmon /report
 ```
 ![perfmon_komutu](Images/perfmon_report.png "perfmon /report Komutu")
@@ -311,14 +311,14 @@ perfmon /report
 
 ## `type` Komutu 
  `type` komutu, bir dosya veya metin dosyasının içeriğini görmek için kullanılır. Bu komut, özellikle bir metin dosyasının içeriğini görmek için kullanışlıdır. İşte `tyepe` komutunun kullanım örneği:
- ```DOS
+ ```dos
  type C:\UnityProjects\MyGame\Assets\Scripts\MyScript.cs
  ```
  ![type_komutu](Images/type.png "type Komutu ")
 
  ## `findstr` Komutu 
  `findstr` komutu, bir dosyada belirtilen kelimeyi bulmak için kullanılır. Bu komut, özellikle metin dosyalarında arama yapmak için kullanışlıdır. İşte `findstr` komutunun kullanım örneği:
- ```DOS
+ ```dos
  findstr "Hello" C:\UnityProjects\MyGame\Assets\Scripts\MyScript.cs
  ```
  ![findstr_komutu](Images/findstr.png "findstr Komutu ")
@@ -330,7 +330,7 @@ Windows işletim sisteminde yüklü sürücülerin durumunu görüntülemek içi
 Aşağıda, `driverquery` komutunun en yaygın kullanım örnekleri ve Unity geliştiricileri için pratik faydaları listelenmiştir.
 
 * `driverquery`: Bu temel komut, sistemde yüklü olan tüm sürücülerin basit bir listesini gösterir.
-   ```DOS
+   ```dos
    driverquery
    ```
    ![driverquery_komutu](Images/driverquery.png "driverquery Komutu ")
@@ -342,13 +342,13 @@ Aşağıda, `driverquery` komutunun en yaygın kullanım örnekleri ve Unity gel
    | Realtek Audio | C:\Windows\System32\RtkAPO.dll | Audio |
 
 * `driverquery /v`: "/v" parametresi "verbose" (ayrıntılı) anlamına gelir. Bu komut, sürücüler hakkında daha detaylı bilgi sağlar, örneğin sürücü sağlayıcısı, sürücü versiyonu ve sürücü türü gibi.
-   ```DOS
+   ```dos
    driverquery /v
    ```
    ![driverquery_komutu](Images/driverquery_v.png "driverquery /v Komutu ")
 
 * `driverquery /fo csv`: "/fo csv" parametresi, çıktıyı CSV (Comma-Separated Values) formatında oluşturur. Bu, sürücü bilgilerini Excel gibi bir uygulamada analiz etmek isteyenler için kullanışlıdır.
-   ```DOS
+   ```dos
    driverquery /fo csv > drivers.csv
    ```
    ![driverquery_komutu](Images/driverquery_fo_csv.png "driverquery /fo csv Komutu ")
@@ -360,7 +360,7 @@ Aşağıda, `driverquery` komutunun en yaygın kullanım örnekleri ve Unity gel
    | Realtek Audio | C:\Windows\System32\RtkAPO.dll | Audio | Stoped |
 
 * `driverquery /si`: "/si" parametresi "signed" (imzalı) anlamına gelir. Bu komut, dijital olarak imzalanmış sürücüler hakkında bilgi verir, ki bu güvenlik açısından önemlidir.
-   ```DOS
+   ```dos
    driverquery /si
    ```
    ![driverquery_komutu](Images/driverquery_si.png "driverquery /si Komutu ")
@@ -384,7 +384,7 @@ Unity geliştiricileri için `driverquery` komutunun kullanım örnekleri:
 
 1. Grafik sürücülerini kontrol etmek:
    `driverquery | findstr "NVIDIA"`
-   ```DOS
+   ```dos
    driverquery | findstr "NVIDIA"
    ```
    ![driverquery_komutu](Images/driverquery_nvidia.png "driverquery /si Komutu ")
@@ -393,21 +393,21 @@ Unity geliştiricileri için `driverquery` komutunun kullanım örnekleri:
 
 2. Ses sürücülerini incelemek:
    `driverquery | findstr "audio"`
-   ```DOS
+   ```dos
    driverquery | findstr "audio"
    ```
    ![driverquery_komutu](Images/driverquery_audio.png "driverquery /si Komutu ")
 
 3. Tüm sürücüleri ayrıntılı bir şekilde bir CSV dosyasına kaydetmek:
    `driverquery /v /fo csv > unity_system_drivers.csv`
-   ```DOS
+   ```dos
    driverquery /v /fo csv > unity_system_drivers.csv
    ```
    ![driverquery_komutu](Images/driverquery_v_fo_csv.png "driverquery /v /fo csv Komutu ")
 
 4. İmzalanmamış sürücüleri tespit etmek (potansiyel güvenlik riskleri):
    `driverquery /si | findstr "FALSE"`
-   ```DOS
+   ```dos
    driverquery /si | findstr "FALSE"
    ```
    ![driverquery_komutu](Images/driverquery_si_false.png "driverquery /si Komutu ")
@@ -426,13 +426,13 @@ Sistem sürücülerinizin her zaman güncel olduğundan emin olun. Güncellemele
 `getmac` komutu, Windows işletim sistemindeki MAC adresini (Media Access Control) görüntüler. Bu komut, özellikle Unity geliştiricileri mac adreslerini, dizinleri ve diğer bağlantıları kontrol etmek için kullanışlıdır. İşte `getmac` komutunun çeş itli kullanım şekilleri:
 
 * `getmac`: Bu temel komut, sistemdeki herhangi bir MAC adresini görüntüler.
-   ```DOS
+   ```dos
    getmac
    ```
    ![getmac_komutu](Images/getmac.png "getmac Komutu ")
 
 * `getmac /fo table /nh /v`: "/all" parametresi, sistemdeki tüm MAC adreslerini görüntüler.
-   ```DOS
+   ```dos
    getmac /fo table /nh /v
    ```
    ![getmac_komutu](Images/getmac_fo_table_nh_v.png "getmac /all Komutu ")
@@ -441,32 +441,32 @@ Sistem sürücülerinizin her zaman güncel olduğundan emin olun. Güncellemele
 `powercfg` komutu, Windows işletim sistemindeki performans ve güvenlik ayarlarını yönetmek için kullanılır. Bu komut, özellikle Unity geliştiricileri performans ve güvenlik ayarlarını değiştirmek için kullanışlıdır. İşte `powercfg` komutunun çeşitli kullanı şekilleri:
 
 * `powercfg`: Bu temel komut, sistemdeki tüm performans ve güvenlik ayarlarını listeler.
-   ```DOS
+   ```dos
    powercfg
    ```
    ![powercfg_komutu](Images/powercfg.png "powercfg Komutu ")
 
 * `powercfg /a`: "/a" parametresi, sistemdeki tüm performans ayarlarını listeler.
-   ```DOS
+   ```dos
    powercfg /a
    ```
    ![powercfg_komutu](Images/powercfg_a.png "powercfg /a Komutu ")
 
 * `powercfg /q`: "/q" parametresi, sistemdeki tüm güvenlik ayarlarını listeler.
-   ```DOS
+   ```dos
    powercfg /q
    ```
    ![powercfg_komutu](Images/powercfg_q.png "powercfg /q Komutu ")
 
 * `powercfg /batteryreport`: "/batteryreport" parametresi, batarya raporunu görüntüler ve bilgisyara kaydedir.
-   ```DOS
+   ```dos
    powercfg /batteryreport
    ```
    ![powercfg_komutu](Images/powercfg_batteryreport.png "powercfg /batteryreport Komutu ")
 
 ## `xcopy /s /i "Dosya_Yol" "Dosya_Yol"` Komutu 
 `Xcopy` komutu, Windows işletim sistemindeki dosyaları ve dizinleri kopyalamak için kullanılır. Bu komut, özellikle Unity geliştiricileri içeri aktarmak için kullanışlıdır. İşte `xcopy` komutunun çeşitli kullanı şekli:
-```DOS
+```dos
 xcopy /s /i "Dosya_Yol" "Dosya_Yol"
 ```
 ![xcopy_komutu](Images/xcopy_s_i.png "xcopy /s /i Komutu ")
@@ -476,46 +476,46 @@ xcopy /s /i "Dosya_Yol" "Dosya_Yol"
 
 1. Sistem Bilgilerini Almak:
    * `wmic computersystem get model,name,manufacturer,systemtype`: Bilgisayarın modelini, adını, üreticisini ve sistem türünü gösterir.
-      ```DOS
+      ```dos
       wmic computersystem get model,name,manufacturer,systemtype
       ```
       ![wmic_komutu](Images/wmic_computersystem.png "wmic computersystem Komutu ")
 
    * `wmic os get caption,version,osarchitecture`: İşletim sistemi adını, sürümünü ve mimarisini gösterir.
-      ```DOS	
+      ```dos	
       wmic os get caption,version,osarchitecture
       ```
       ![wmic_komutu](Images/wmic_os_get_caption_version_osarchitecture.png "wmic os get caption,version,osarchitecture Komutu ")
 
 2. Donanım Bilgilerini Kontrol Etmek:
    * `wmic cpu get name,numberofcores,maxclockspeed`: İşlemci adını, çekirdek sayısını ve maksimum hızını gösterir.
-      ```DOS
+      ```dos
       wmic cpu get name,numberofcores,maxclockspeed
       ```
       ![wmic_komutu](Images/wmic_cpu_get_name_numberofcores_maxclockspeed.png "wmic cpu get name,numberofcores,maxclockspeed Komutu ")
 
    * `wmic memorychip get capacity,speed`: RAM kapasitesini ve hızını gösterir.
-      ```DOS
+      ```dos
       wmic memorychip get capacity,speed
       ```
       ![wmic_komutu](Images/wmic_memorychip_get_capacity_speed.png "wmic memorychip get capacity,speed Komutu ")
 
    * `wmic diskdrive get model,size,status`: Sabit disk modelini, boyutunu ve durumunu gösterir.
-      ```DOS	
+      ```dos	
       wmic diskdrive get model,size,status
       ```
       ![wmic_komutu](Images/wmic_diskdrive_get_model_size_status.png "wmic diskdrive get model,size,status Komutu ")
 
 3. Grafik Kartı Bilgilerini Almak:
    * `wmic path win32_VideoController get name,adapterram,driverversion`: Grafik kartı adını, RAM'ini ve sürücü sürümünü gösterir.
-      ```DOS
+      ```dos
       wmic path win32_VideoController get name,adapterram,driverversion
       ```
       ![wmic_komutu](Images/wmic_path_win32_VideoController_get_name_adapterram_driverversion.png "wmic path win32_VideoController get name,adapterram,driverversion Komutu ")
 
 4. Çalışan Uygulamaları Listelemek:
    * `wmic process where "name like '%Unity%'" get name,processid,commandline`: Çalışan Unity ile ilgili süreçleri listeler.
-      ```DOS
+      ```dos
       wmic process where "name like '%Unity%'" get name,processid,commandline
       ```
       ![wmic_komutu](Images/wmic_process_where_name_like_Unity_get_name_processid_commandline.png "wmic process where name like '%Unity%' get name,processid,commandline Komutu ")
@@ -524,37 +524,37 @@ xcopy /s /i "Dosya_Yol" "Dosya_Yol"
 
 5. Sistem Performansını İzlemek:
    * `wmic cpu get loadpercentage`: CPU kullanım yüzdesini gösterir.
-      ```DOS
+      ```dos
       wmic cpu get loadpercentage
       ```
       ![wmic_komutu](Images/wmic_cpu_get_loadpercentage.png "wmic cpu get loadpercentage Komutu ")
 
    * `wmic memorychip get capacity`: Toplam RAM kapasitesini gösterir.
-      ```DOS
+      ```dos
       wmic memorychip get capacity
       ```
       ![wmic_komutu](Images/wmic_memorychip_get_capacity.png "wmic memorychip get capacity Komutu ")
 
 6. Unity Projesi için Otomatik Görevler:
    * `wmic process call create "C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Unity.exe -projectPath C:\UnityProjects\MyGame -batchmode -quit -logFile C:\buildlog.txt -buildWindows64Player C:\Builds\MyGame.exe"`: Unity projesini komut satırından derler.
-      ```DOS	
+      ```dos	
       wmic process call create wmic process call create "C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Unity.exe -projectPath C:\UnityProjects\MyGame -batchmode -quit -logFile C:\buildlog.txt -buildWindows64Player C:\Builds\MyGame.exe"
       ```
 
 Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, performans sorunlarını teşhis etmelerine ve otomatik derleme süreçleri oluşturmalarına yardımcı olabilir. Ayrıca, farklı test ortamlarında tutarlı sistem bilgileri toplamak için de kullanışlıdır.
 
- Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca, Microsoft Windows 11'de `wmic` yerine daha modern `Get-WmiObject` PowerDOS cmdlet'i kullanılması önerilmektedir.
+ Not: Bazı `wmic` komutları yönetici ayrıcalıkları gerektirebilir. Ayrıca, Microsoft Windows 11'de `wmic` yerine daha modern `Get-WmiObject` Powerdos cmdlet'i kullanılması önerilmektedir.
 
 ## `sc queryex type=service state=all` Komutu 
 `sc queryex type=service state=all` komutu, Windows işletim sistemindeki servisleri listeler. Bu komut, özellikle Unity geliştiricileri servislerini incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `sc queryex type=service state=all` komutun çeşitli kullanım şekilleri:
 * `sc queryex type=service state=all`: Bu temel komut, sistemdeki tüm servisleri listeler.
-   ```DOS	
+   ```dos	
    sc queryex type=service state=all
    ```
    ![sc_queryex_komutu](Images/sc_queryex_type_service_state_all.png "sc queryex Komutu ")
 
 * `sc queryex type=service state=all | findstr "RUNNING"`: "/findstr" parametresi, sistemdeki tüm servisleri listeler ve "RUNNING" ifadesi içerenlerin sadece adlarını listeler.
-   ```DOS   
+   ```dos   
    sc queryex type=service state=all | findstr "RUNNING"
    ```
    ![sc_queryex_komutu](Images/sc_queryex_type_service_state_all_findstr_running.png "sc queryex Komutu ")
@@ -562,20 +562,20 @@ Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, perfor
 ## `wevtutil qe Application /c:10 /f:text` Komutu 
 `wevtutil qe Application /c:10 /f:text` komutu, Windows işletim sistemindeki uygulama olaylarına bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri olayları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `wevtutil qe Application /c:10 /f:text` komutunun çeşitli kullanım şekilleri:
 * `wevtutil qe Application /c:10 /f:text`: Bu temel komut, uygulama olaylarını sıralar ve text formatında listeler.
-   ```DOS	
+   ```dos	
    wevtutil qe Application /c:10 /f:text
    ```
    ![wevtutil_qe_komutu](Images/wevtutil_qe_Application_c_10_f_text.png "wevtutil qe Komutu ")
 
 * `wevtutil qe Application /c:10 /f:text | findstr "Unity"`: "/findstr" parametresi, uygulama olaylarını sıralar ve text formatında listeler ve "Unity" ifadesi içerenlerin sadece adlarını listeler.
-   ```DOS		
+   ```dos		
    wevtutil qe Application /c:10 /f:text | findstr "Unity"
    ```
 
    ![wevtutil_qe_komutu](Images/wevtutil_qe_Application_c_10_f_text_findstr_Unity.png "we_qe_Application_c_10_f_text_findstr_Unity.png wevtutil qe Komutu ")
 
 * `wevtutil qe Application /c:10 /f:text | findstr "Unity" /v`: "/findstr /v" parametresi, uygulama olaylarını sıralar ve text formatında listeler ve "Unity" ifadesi içerenlerin sadece adlarını listeler ve sadece olayları gösterir.
-   ```DOS
+   ```dos
    wevtutil qe Application /c:10 /f:text | findstr "Unity" /v
    ```
    ![wevtutil_qe_komutu](Images/wevtutil_qe_Application_c_10_f_text.png "wevtutil qe Komutu ")
@@ -583,19 +583,19 @@ Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, perfor
 ## `netsh wlan show interfaces` Komutu 
 `netsh wlan show interfaces` komutu, Windows işletim sistemindeki ağlara bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri ağları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `netsh wlan show interfaces` komutun çeşitli kullanım şekilleri:
 * `netsh wlan show interfaces`: Bu temel komut, sistemdeki tüm ağları listeler.
-   ```DOS	
+   ```dos	
    netsh wlan show interfaces
    ```
    ![netsh_wlan_show_interfaces_komutu](Images/netsh_wlan_show_interfaces.png "netsh wlan show interfaces Komutu ")
 
 * `netsh wlan show interfaces | findstr "SSID"`: "/findstr" parametresi, sistemdeki tüm ağları listeler ve "SSID" ifadesi içerenlerin sadece adlarını listeler.
-   ```DOS	
+   ```dos	
    netsh wlan show interfaces | findstr "SSID"
    ```
    ![netsh_wlan_show_interfaces_komutu](Images/netsh_wlan_show_interfaces_findstr_SSID.png "netsh wlan show interfaces findstr SSID Komutu ")
 
 * `netsh wlan show interfaces | findstr "SSID" /v`: "/findstr /v" parametresi, sistemdeki tüm ağları listeler ve "SSID" if adesi içerenlerin sadece adlarını listeler ve sadece ağları gösterir.
-   ```DOS
+   ```dos
    netsh wlan show interfaces | findstr "SSID" /v
    ```
    ![netsh_wlan_show_interfaces_komutu](Images/netsh_wlan_show_interfaces_findstr_SSID_v.png "netsh wlan show interfaces findstr SSID /v Komutu ")
@@ -603,7 +603,7 @@ Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, perfor
 ## `nslookup` Komutu 
 `nslookup` komutu, belirli bir web sitesinin veya etki alanının IP adresini bulmak için "nslookup" komutunu kullanabilirsiniz. İşte `nslookup` komutunun çeşitli kullanım şekili:
 `nslookup`: Bu temel komut, sistemdeki tüm ağları listeler.
-```DOS
+```dos
 nslookup
 ```
 ![nslookup_komutu](Images/nslookup.png "nslookup Komutu ")
@@ -612,20 +612,20 @@ nslookup
 `tracert` komutu, Windows işletim sistemindeki ağlara bakmak için kullanılır. Bu komut, özellikle Unity geliştiricileri ağları incelemek ve otomatik görevler oluşturmak için kullanışlıdır. İşte `tracert` komutun çeşitli kullanım şekilleri:
 
 * `tracert`: Bu temel komut, sistemdeki tüm ağları listeler.
-   ```DOS
+   ```dos
    tracert
    ```
    ![tracert_komutu](Images/tracert.png "tracert Komutu ")
 
 * `tracert | findstr "192.168.1"`: "/findstr" parametresi, sistemdeki tüm ağları listeler ve "192.168.1" ifadesi içerenlerin sadece adlarını listeler.
-   ```DOS
+   ```dos
    tracert | findstr "192.168.1"
    ```
    ![tracert_komutu](Images/tracert_findstr_192_168_1.png "tracert | findstr 192.168.1 Komutu ")
 
 ## `echo` Komutu 
 `echo` komutu, bir metin yazdırmak için kullanılır. İşte `echo` komutunun çeşitli kullanım şekli:
-```DOS
+```dos
 echo Hello World!
 ```
 ![echo_komutu](Images/echo.png "echo Komutu ")
@@ -636,31 +636,31 @@ echo Hello World!
 ### `schtasks` Komutunun Farklı Kullanım Şekilleri
 
 * `schtasks`: Bu temel komut, sistemdeki tüm görevleri listeler.
-   ```DOS
+   ```dos
    schtasks
    ```
    ![schtasks_komutu](Images/schtasks.png "schtasks Komutu ")
 
 * `schtasks | findstr "Unity"`: "/findstr" parametresi, sistemdeki tüm görevleri listeler ancak sadece "Unity" ifadesi içerenlerin sadece adlarını listeler.
-   ```DOS
+   ```dos
    schtasks | findstr "StartComponentCleanup"
    ```
    ![schtasks_komutu](Images/schtasks_findstr.png "schtasks | findstr Unity Komutu ")
 
 * `schtasks /query`: Bu komut komutu, sistemdeki tüm görevleri listeleri deaylı şeklilde gösterir.
-   ```DOS
+   ```dos
    schtasks /query
    ```
    ![schtasks_komutu](Images/schtasks_query.png "schtasks /query Komutu ")
 
 * `schtasks /query /fo csv`: Bu komut, sistemdeki tüm görevleri listeler ve CSV formatında gösterir.
-   ```DOS
+   ```dos
    schtasks /query /fo csv
    ```
    ![schtasks_komutu](Images/schtasks_query_fo_csv.png "schtasks /query /fo csv Komutu ")
 
 * `schtasks /create /tn "Görev Adı" /tr "Görev Komutu" /sc schedule_type /st start_time /sd start_date` : Bu komut, belirli bir görev oluşturur.
-   ```DOS
+   ```dos
    schtasks /create /tn "Night Backup" /tr "C:\Users\EnesEfeTokta" /sc daily /st 23:00
    ```
    ![schtasks_komutu](Images/schtasks_create_tn_tr_sc_st_sd.png "schtasks /create Komutu ")
@@ -671,19 +671,19 @@ echo Hello World!
    3) `schtasks /create /tn "Cuma Kapatma" /tr "shutdown -s -t 0" /sc weekly /d FRI /st 23:59` bu komut ile Cuma günü 23:59'da sistem kapatılabilir.
 
 * `schtasks /run /tn "Görev Adı"`: Bu komut, belirli bir görevi çalıştırır.
-   ```DOS
+   ```dos
    schtasks /run /tn "Night Backup"
    ```
    ![schtasks_komutu](Images/schtasks_run_tn.png "schtasks /run Komutu")
 
 * `schtasks /delete /tn "Görev Adı"`: Bu komut, belirli bir görevi siler.
-   ```DOS
+   ```dos
    schtasks /delete /tn "Night Backup"
    ```
    ![schtasks_komutu](Images/schtasks_delete_tn.png "schtasks /delete Komutu")
 
 * `schtasks /change /tn "Görev Adı" /tr "Görev Komutu"`: Bu komut, belirli bir görevi değiştirir.
-   ```DOS
+   ```dos
    schtasks /change /tn "Night Backup" /tr "C:\Users\EnesEfeTokta\Rapor.bat"
    ```
    ![schtasks_komutu](Images/schtasks_change_tn_tr_delete.png "schtasks /change Komutu")
@@ -692,14 +692,14 @@ Bu komutlara ek olarak isterseniz görev listenizi "Görev Zamanlayıcı" sayfas
 
 ## `exit` Komutu 
 `exit` komutu, Windows işletim sistemindeki komutların sonlandırılmasını sağlar ve terminali kapatır.
-```DOS
+```dos
 exit
 ```
 ![exit_komutu](Images/exit.png "exit Komutu")
 
 ## `for` Komutu 
 `for` komutu, bir döngü oluşturmak için kullanılır. `For` komutu iki tane parametre alır. İlk parametre döngüyü oluşturmak için kullanılan ifadeyi, ikinci parametre ise döngüye dahil olan değerleri belirtir. Örneğin, bu örnek bir dizinde ki .txt uzantılı dosyaları taramak için kullanılır.
-```DOS
+```dos
 for %i in (*.txt) do echo %i
  ```
 ![for_komutu](Images/for_echo.png "For Komutu")
@@ -712,19 +712,19 @@ Not: Bu komutların betik dosyasında (.bat veya .cmd) çalıştırılması duru
 Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
 
 * `for %i in ("Hedef_Dizin\*.txt") do copy "%i" "Taşınacak_Dizin"` Bu komut, "Hedef_Dizin\*.txt" klasöründeki tüm.txt uzantılı dosyaları "Taşınacak_Dizin" klasörüne kopyalar.
-   ```DOS
+   ```dos
    for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do copy "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"
    ```
    ![for_komutu](Images/for_file_copy.png "For Komutu")
 
 * `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"` Bu komut, "C:\Users\EnesEfeTokta\Desktop\*.txt" klasöründeki tüm .txt uzantılı dosyaları "C:\Users\EnesEfeTokta\Desktop\Dizin_adi" klasörüne taşır.
-   ```DOS
+   ```dos
    for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"
    ```
    ![for_komutu](Images/for_file_move.png "For Komutu")
 
 * `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"` Bu komut, "C:\Users\EnesEfeTokta\Desktop\*.txt" klasöründeki tüm.txt uzantılı dosyaları siler.
-   ```DOS
+   ```dos
    for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"
    ```
    ![for_komutu](Images/for_file_delete.png "For Komutu")
@@ -736,7 +736,7 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
 `diskpart` komutunu Windows işletim sisteminde kullanmak için, CMD'yi yönetici olarak açmak zorunludur anca yönetici olarak açmazsanız komutu çalıştırdığınızda sizden izin isteyecek. İzin verdiğinizde sizi özel bir komut sanıtı ekranına yönlendirecektir. Komut sanıtı ekranında aksi durum yaşanmadığında her satırda ilk `DISKPART>` yazılır.
 
 `diskpart` komutlarını kullanmak için komut satırına `diskpart` yazılır.
-```DOS
+```dos
  diskpart
  ```
  ![diskpart_komutu](Images/diskpart.png "diskpart Komutu")
@@ -744,37 +744,37 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
  ### `diskpart` Komutları
  Not: Bu komutlar diskinizde ki verileri değiştirebilir, bozabilir veya geri dönüşü olmaksızın silebilir. Lütfen bu komutu kullanırken dikkatli olunuz.
  * `list disk` : Bu komut, disklerin listesini gösterir.
-   ```DOS
+   ```dos
    list disk
    ```
    ![list_disk](Images/diskpart_list_disk.png "list disk Komutu")
 
 * `select disk x` : Bu komut, disklerin listesinden belirli bir disk seçmesini sağlar. `x` kısmı, seçilecek diskin numarasını belirtir.
-   ```DOS
+   ```dos
    select disk 2
    ```
    ![select_disk](Images/diskpart_select_disk.png "select disk Komutu")
 
 * `list partition` : Bu komut, seçilen diskin bölümlerini listeler.
-   ```DOS
+   ```dos
    list partition
    ```
    ![list_partition](Images/diskpart_list_partition.png "list partition Komutu")
 
 * `create partition primary` : Bu komut, bir diskin bölümlerini oluşturur.
-   ```DOS
+   ```dos
    create partition primary
    ```
    ![create_partition](Images/diskpart_create_partition.png "create partition Komutu")
 
 * `format fs=ntfs quick` : Bu komut, seçilen diskin bölümlerini formatlar. `fs=ntfs` kısmı, bölümün biçimi, `quick` kısmı, bölümün kısa sürede yeniden yapılandırılmasını sağlar. ntfs yerine fat32 gibi farklı dosya sistemleri de seçebilirsiniz
-   ```DOS
+   ```dos
    format fs=ntfs quick
    ```
    ![format_partition](Images/diskpart_format.png "format partition Komutu")
 
 * `assign letter=E` : Bu komut, seçilen diskin bölümlerini sürücü harflerine atar. `letter=E` kısmı, atanan sürücü harfi belirtilir.
-   ```DOS
+   ```dos
    assign letter=E
    ```
    ![assign_letter](Images/diskpart_assign_letter.png "assign letter Komutu")
