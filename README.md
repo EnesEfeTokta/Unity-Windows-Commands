@@ -46,7 +46,7 @@ Bu dokümanın amacı, Unity geliştiricilerine yönelik olarak Windows işletim
 | 28 | [`schtasks`](#schtasks-komutu) | Belirli görevleri otomotikleştiriyor. | `schtasks`, `schtasks \| findstr "Unity"`, `schtasks /query`, `schtasks /query /fo csv`, `schtasks /create /tn "Görev Adı" /tr "Görev Komutu" /sc schedule_type /st start_time /sd start_date`, `schtasks /run /tn "Görev Adı"`, `schtasks /delete /tn "Görev Adı"`, `schtasks /change /tn "Görev Adı" /tr "Görev Komutu"` |
 | 29 | [`exit`](#exit-komutu) | Komutları sonlandırır ve terminali kapatır. | `exit` |
 | 30 | [`for`](#for-komutu) | Döngü oluşturmakta kullanışlıdır. | `for %i in (*.txt) do echo %i`, `for %i in ("Hedef_Dizin\*.txt") do copy "%i" "Taşınacak_Dizin"`, `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"`, `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"` |
-| 31 | [`diskpart`](#diskpart-komutları) | Disk üzerinde çalışılmasını sağlar. | `diskpart`, `list disk`, `select disk x`, `list partition`, `create partition primary`, `format fs=ntfs quick` |
+| 31 | [`diskpart`](#diskpart-komutları) | Disk üzerinde çalışılmasını sağlar. | `diskpart`, `list disk`, `select disk x`, `list partition`, `create partition primary`, `format fs=ntfs quick`, `exit`, `select volume x`, `detail partition`, `detail disk` |
 
 ## Uyarılar
 Lütfen bu komutları kendi cihazınızda test ederken dikkatli olununuz. Bazı komutlar cihazınızda ki verilerinizi bozabilir, değiştirebilir veya silebilir. Her hangi bir olumsuz durumda mesuliyet kabul edilmiyor. Bir sorunla karşılaşırsanız, Microsoft'dan yardım alabilirsiniz.
@@ -730,10 +730,9 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
    ![for_komutu](Images/for_file_delete.png "For Komutu")
 
 ## `diskpart` Komutu 
+`diskPart`, Windows işletim sistemlerinde disk ve depolama birimlerini yönetmek için kullanılan gelişmiş bir komut satırı aracıdır. `diskPart` sayesinde disklerinizi kolayca yapılandırabilir, bölümleri (partition) oluşturabilir, silebilir, biçimlendirebilir ve sürücü harfleri atayabilirsiniz. Güçlü bir araç olduğu için komutların dikkatli bir şekilde kullanılması önemlidir, çünkü yanlışlıkla yapılan işlemler veri kaybına yol açabilir.
 
-`diskpart` komutu, Windows işletim sistemlerinde diskleri, bölümleri ve birimleri yönetmek için kullanılan güçlü bir komut satırı aracıdır. Bu araç sayesinde, diskleri oluşturabilir, silebilir, biçimlendirebilir, bölümler oluşturabilir, boyutlandırabilir ve silebilir, sürücü harfleri atayabilir ve daha birçok disk yönetimi işlemini gerçekleştirebilirsiniz.
-
-`diskpart` komutunu Windows işletim sisteminde kullanmak için, CMD'yi yönetici olarak açmak zorunludur anca yönetici olarak açmazsanız komutu çalıştırdığınızda sizden izin isteyecek. İzin verdiğinizde sizi özel bir komut sanıtı ekranına yönlendirecektir. Komut sanıtı ekranında aksi durum yaşanmadığında her satırda ilk `DISKPART>` yazılır.
+> `diskpart` komutunu Windows işletim sisteminde kullanmak için, CMD'yi yönetici olarak açmak zorunludur anca yönetici olarak açmazsanız komutu çalıştırdığınızda sizden izin isteyecek. İzin verdiğinizde sizi özel bir komut sanıtı ekranına yönlendirecektir. Komut sanıtı ekranında aksi durum yaşanmadığında her satırda ilk `DISKPART>` yazılır.
 
 `diskpart` komutlarını kullanmak için komut satırına `diskpart` yazılır.
 ```dos
@@ -743,11 +742,16 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
 
  ### `diskpart` Komutları
  Not: Bu komutlar diskinizde ki verileri değiştirebilir, bozabilir veya geri dönüşü olmaksızın silebilir. Lütfen bu komutu kullanırken dikkatli olunuz.
- * `list disk` : Bu komut, disklerin listesini gösterir.
+ * `list disk` : Bu komut, sistemde bulunan tüm fiziksel disklerin bir listesini görüntüler. Her disk, bir numarayla temsil edilir (`Disk 0`, `Disk 1` gibi). Ayrıca her diskin boyutu ve durum bilgisi (örneğin, çevrimdışı veya çevrimiçi olup olmadığı) bu listede yer alır.
    ```dos
    list disk
    ```
    ![list_disk](Images/diskpart_list_disk.png "list disk Komutu")
+
+   **Açıklama:**
+   * Tüm fiziksel diskleri ve boyutlarını listeler.
+   * Hangi disk üzerinde çalışacağınızı belirlemek için kullanılır.
+   * "GPT" sütununda bir yıldız işareti varsa, disk GUID Partition Table (GPT) kullanıyordur. Yoksa Master Boot Record (MBR) formatındadır.
 
 * `select disk x` : Bu komut, disklerin listesinden belirli bir disk seçmesini sağlar. `x` kısmı, seçilecek diskin numarasını belirtir.
    ```dos
@@ -755,11 +759,45 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
    ```
    ![select_disk](Images/diskpart_select_disk.png "select disk Komutu")
 
-* `list partition` : Bu komut, seçilen diskin bölümlerini listeler.
+* `detail disk`: Bu komut, seçilen disk hakkında ayrıntılı bilgi sağlar. Diskin bölümleri, mevcut durumları ve olası özellikleri hakkında bilgi edinmek için kullanılır.
+   ```dos
+   detail disk
+   ```
+   ![detail_disk](Images/diskpart_detail_disk.png "detail disk Komutu")
+
+   **Açıklama:**
+   * Diskin boyutu, boş alan miktarı, bölümler ve hangi dosya sistemini kullandığı gibi bilgileri gösterir.
+   * Diskin dinamik (Dynamic) mi yoksa temel (Basic) bir disk mi olduğunu belirtir.
+   * Diskin yazma korumalı olup olmadığını kontrol etmek için kullanılabilir.
+
+* `exit`: Bu komut, diskpart 'tan güvenli şekilde çıkışımızı yapar.
+   ```dos
+   exit
+   ```
+   ![exit](Images/diskpart_exit.png "exit Komutu")
+
+* `list partition` : Bu komut, seçili bölüm hakkında ayrıntılı bilgi sağlar. Bölümün dosya sistemi, başlangıç ve bitiş adresleri gibi teknik detaylarını görüntüler.
    ```dos
    list partition
    ```
    ![list_partition](Images/diskpart_list_partition.png "list partition Komutu")
+
+   **Açıklama:**
+   * Bölümün NTFS, FAT32 gibi dosya sistem bilgilerini gösterir.
+   * Bölümün başlangıç (offset) ve bitiş adreslerini listeler.
+   * Bölümün aktif (bootable) olup olmadığını öğrenmek için kullanılır.
+
+* `detail partition`: Bu komut, seçilen bölüm (partition) hakkında ayrıntılı bilgi sağlar. Bu bilgiler, özellikle bir diskteki bölümlerin özelliklerini kontrol etmek, sorun gidermek veya yönetmek istediğinizde kullanışlıdır.
+   ```dos
+   detail partiton
+   ```
+   ![detail_partition](Images/diskpart_detail_partition.png "detail partition Komutu")
+
+* `select volume x`: Bu komut, diskteki bir hacmi (volume) seçmek için kullanılır. `x`, işletim sistemi tarafından sürücü harfleriyle tanınan mantıksal birimlerdir (örneğin, C:, D:, E: gibi).
+   ```dos
+   select volume X
+   ```
+   ![select_volume](Images/diskpart_select_volume.png)
 
 * `create partition primary` : Bu komut, bir diskin bölümlerini oluşturur.
    ```dos
@@ -778,6 +816,11 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
    assign letter=E
    ```
    ![assign_letter](Images/diskpart_assign_letter.png "assign letter Komutu")
+
+### Dikkat Edilmesi Gerelenler
+1) **Veri Kaybı Riski:** DiskPart, diskteki verileri kolayca silebilir veya bozabilir. Bu yüzden komutları dikkatli kullanın.
+2) **Yönetici İzni:** DiskPart'ı yönetici olarak çalıştırmalısınız, aksi takdirde tüm işlemleri gerçekleştiremezsiniz.
+3) **Doğru Disk/Bölüm Seçimi:** Hangi diski/bölümü seçtiğinizi iki kez kontrol edin, çünkü yanlış bir seçim verilerinizi kaybetmenize yol açabilir.
 
 ## Kaynaklar
 |Bağlantı Linki|Kaynak|
