@@ -46,13 +46,7 @@ Bu dokümanın amacı, Unity geliştiricilerine yönelik olarak Windows işletim
 | 28 | [`schtasks`](#schtasks-komutu) | Belirli görevleri otomotikleştiriyor. | `schtasks`, `schtasks \| findstr "Unity"`, `schtasks /query`, `schtasks /query /fo csv`, `schtasks /create /tn "Görev Adı" /tr "Görev Komutu" /sc schedule_type /st start_time /sd start_date`, `schtasks /run /tn "Görev Adı"`, `schtasks /delete /tn "Görev Adı"`, `schtasks /change /tn "Görev Adı" /tr "Görev Komutu"` |
 | 29 | [`exit`](#exit-komutu) | Komutları sonlandırır ve terminali kapatır. | `exit` |
 | 30 | [`for`](#for-komutu) | Döngü oluşturmakta kullanışlıdır. | `for %i in (*.txt) do echo %i`, `for %i in ("Hedef_Dizin\*.txt") do copy "%i" "Taşınacak_Dizin"`, `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do move "%i" "C:\Users\EnesEfeTokta\Desktop\Dizin_adi"`, `for %i in ("C:\Users\EnesEfeTokta\Desktop\*.txt") do del "%i"` |
-
-## Kaynaklar
-|Bağlantı Linki|Kaynak|
-|:---:|:---:|
-| [Medium](https://mirzaleka.medium.com/getting-started-with-windows-command-prompt-5e326f894dd0) | ![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white) |
-| [Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands) | ![Microsoft Learn](https://img.shields.io/badge/Microsoft_Learn-258ffa?style=for-the-badge&logo=microsoft&logoColor=white) |
-| [YouTube](https://www.youtube.com/watch?v=_km5A8KC5e0) | ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
+| 31 | [`diskpart`](#diskpart-komutları) | Disk üzerinde çalışılmasını sağlar. | `diskpart`, `list disk`, `select disk x`, `list partition`, `create partition primary`, `format fs=ntfs quick` |
 
 ## Uyarılar
 Lütfen bu komutları kendi cihazınızda test ederken dikkatli olununuz. Bazı komutlar cihazınızda ki verilerinizi bozabilir, değiştirebilir veya silebilir. Her hangi bir olumsuz durumda mesuliyet kabul edilmiyor. Bir sorunla karşılaşırsanız, Microsoft'dan yardım alabilirsiniz.
@@ -249,8 +243,9 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
    ![systeminfo_komutu](Images/systeminfo_fo_l.png "systeminfo Komutu ")
 
 ## `tree` Komutu 
-`tree` komutu, bir dizinin yapısını görsel olarak gösteren kullanışlı bir Windows komutudur. Bu komut, özellikle karmaşık proje yapılarına sahip Unity projelerinde dosya ve klasör hiyerarşisini anlamak için çok faydalı olabilir. İşte `tree` komutunun çeşitli kullanım şekilleri:
+`tree` komutu, bir dizinin hiyerarşik yapısını görselleştirmek için kullanılan basit ancak etkili bir Windows komutudur. Özellikle Unity projeleri gibi karmaşık dosya yapılarına sahip projelerde, klasör yapısını hızlıca anlamak veya dokümante etmek için oldukça faydalıdır. Aşağıda tree komutunun farklı kullanım şekilleri ve Unity geliştiricileri için örnekleri yer almaktadır.
 
+### `tree` Komutunun Kullanım Şekilleri
 * `tree <dizin_yolu>`: Bu temel komut, belirtilen dizinin alt dizinlerini ve klasör yapısını gösterir. Dosyaları göstermez.
    ```DOS
    tree C:\UnityProjects\MyGame
@@ -283,23 +278,22 @@ Not: İşlemleri zorla kapatmak veri kaybına neden olabilir, bu nedenle dikkatl
 
     Not: Çıktının uzunluğu fazla olduğu için ekranda ufak bir bir bölümü gösteridim.
 
-Unity geliştiricileri için `tree` komutunun kullanım örnekleri:
+### Unity Geliştiricileri İçin Kullanım Örnekleri
 
-1. Proje yapısını incelemek:
-   `tree C:\UnityProjects\MyGame\Assets`
+1. **Proje Yapısını Görmek:** Unity projesindeki ana klasörlerin genel yapısını incelemek için `tree C:\UnityProjects\MyGame\Assets`.
 
-2. Script dosyalarının organizasyonunu görmek:
-   `tree C:\UnityProjects\MyGame\Assets\Scripts /f`
+2. **Script Klasörünü İncelemek:** Kodların bulunduğu `Scripts` klasörünün hem yapısını hem de içindeki dosyaları listelemek için `tree C:\UnityProjects\MyGame\Assets\Scripts /f`.
 
-3. Prefab ve sahne dosyalarının yerleşimini kontrol etmek:
-   `tree C:\UnityProjects\MyGame\Assets\Prefabs C:\UnityProjects\MyGame\Assets\Scenes /f`
+3. **Prefab ve Sahne Dosyalarını Kontrol Etmek:** Prefab ve Scene dosyalarının yerleşimini aynı anda görmek için `tree C:\UnityProjects\MyGame\Assets\Prefabs C:\UnityProjects\MyGame\Assets\Scenes /f`.
 
-4. Projenin genel yapısını bir metin dosyasına kaydetmek:
-   `tree C:\UnityProjects\MyGame /a /f > project_structure.txt`
+4. **Proje Yapısını Dokümante Etmek:** Proje yapısını dokümante etmek ve bir metin dosyasına kaydetmek için `tree C:\UnityProjects\MyGame /a /f > project_structure.txt`.
 
 Bu komut, özellikle büyük Unity projelerinde dosya organizasyonunu anlamak, proje yapısını dokümante etmek veya farklı projeler arasında yapı karşılaştırması yapmak için çok kullanışlıdır.
 
- Not: Çok büyük projelerde `/f` parametresini kullanırken dikkatli olun, çünkü çıktı oldukça uzun olabilir.
+### Önemli Notlar
+1) **Çıktının Uzunluğu:** Büyük projelerde `/f` parametresi ile alınan çıktılar çok uzun olabilir. Bu durumda sadece önemli klasörlerin analizini yapmak daha uygun olabilir.
+2) **ASCII Kullanımı:** Farklı sistemlerde uyumluluk sorunları yaşamamak için `/a` parametresini tercih edebilirsiniz.
+3) **Proje Organizasyonu:** Bu komut sayesinde dosya ve klasör düzeninizi kolayca analiz edebilir ve hatalı yapıları düzeltebilirsiniz.
 
 ## `perfmon /report` Komutu 
 `perfmon /report` komutu, performans izleyicisini açar. Cihazın performansını ölçülmesine olanak sağlar.
@@ -330,13 +324,22 @@ perfmon /report
  ![findstr_komutu](Images/findstr.png "findstr Komutu ")
 
 ## `driverquery` Komutu 
-`driverquery` komutu, Windows işletim sisteminde yüklü olan sürücülerin (drivers) listesini görüntülemek için kullanılır. Bu komut, özellikle Unity geliştiricileri için donanım uyumluluğu ve performans sorunlarını teşhis etmede yararlı olabilir. İşte `driverquery` komutunun çeşitli kullanım şekilleri:
+Windows işletim sisteminde yüklü sürücülerin durumunu görüntülemek için kullanılan `driverquery` komutu, sistemdeki donanım ve sürücülerle ilgili detaylı bilgi sağlar. Bu bilgi, özellikle Unity geliştiricileri gibi performans ve uyumluluk konularında hassas olan kullanıcılar için oldukça faydalıdır. Komut, sürücüler hakkında hızlı bir şekilde bilgi almayı mümkün kılar ve sorun tespiti ile çözüm için kritik bir araçtır.
+
+### `driverquery` Komutunun Kullanım Şekilleri
+Aşağıda, `driverquery` komutunun en yaygın kullanım örnekleri ve Unity geliştiricileri için pratik faydaları listelenmiştir.
 
 * `driverquery`: Bu temel komut, sistemde yüklü olan tüm sürücülerin basit bir listesini gösterir.
    ```DOS
    driverquery
    ```
    ![driverquery_komutu](Images/driverquery.png "driverquery Komutu ")
+
+   **Bu komut, sistemde yüklü olan tüm sürücülerin temel bir listesini görüntüler. Örnek çıktı:**
+   | Modül Adı | Görüntüleme Yolu | Tip |
+   | :---: | :---: | :---: |
+   | NVIDIA | C:\Windows\System32\nvlddmkm.sys | Kernel |
+   | Realtek Audio | C:\Windows\System32\RtkAPO.dll | Audio |
 
 * `driverquery /v`: "/v" parametresi "verbose" (ayrıntılı) anlamına gelir. Bu komut, sürücüler hakkında daha detaylı bilgi sağlar, örneğin sürücü sağlayıcısı, sürücü versiyonu ve sürücü türü gibi.
    ```DOS
@@ -350,11 +353,32 @@ perfmon /report
    ```
    ![driverquery_komutu](Images/driverquery_fo_csv.png "driverquery /fo csv Komutu ")
 
+   **CSV 'ye Örnek Çıktı:**
+   | Modül Adı | Görüntüleme Yolu | Tip | Durum |
+   | :---: | :---: | :---: | :---: |
+   | NVIDIA | C:\Windows\System32\nvlddmkm.sys | Kernel | Running |
+   | Realtek Audio | C:\Windows\System32\RtkAPO.dll | Audio | Stoped |
+
 * `driverquery /si`: "/si" parametresi "signed" (imzalı) anlamına gelir. Bu komut, dijital olarak imzalanmış sürücüler hakkında bilgi verir, ki bu güvenlik açısından önemlidir.
    ```DOS
    driverquery /si
    ```
    ![driverquery_komutu](Images/driverquery_si.png "driverquery /si Komutu ")
+
+### Unity Geliştiricileri için Kullanım Alanları
+Unity projelerinde driverquery komutunun bazı önemli kullanım alanları şunlardır:
+
+1) **Performans Sorunlarını Teşhis Etmek:**
+   * Özellikle grafik veya sesle ilgili sorunlar yaşandığında, ilgili sürücünün düzgün yüklü olup olmadığını kontrol edebilirsiniz.
+
+2) **Uyumluluk Sorunlarını Çözmek:**
+   * Sistem sürücü versiyonlarını kontrol ederek, Unity'nin minimum gereksinimlerini karşılayıp karşılamadığını tespit edebilirsiniz.
+
+3) **Test Ortamlarını Karşılaştırmak:**
+   * Farklı test makinelerinde sistem sürücülerini analiz ederek, sürücü farklılıklarından kaynaklanan sorunları çözebilirsiniz.
+
+4) **Potansiyel Güvenlik Risklerini Azaltmak:**
+   * İmzalanmamış sürücüleri tespit edip güncelleyerek, sistem güvenliğini artırabilirsiniz.
 
 Unity geliştiricileri için `driverquery` komutunun kullanım örnekleri:
 
@@ -390,7 +414,13 @@ Unity geliştiricileri için `driverquery` komutunun kullanım örnekleri:
 
 Bu komut, Unity projelerinde performans sorunları yaşandığında, özellikle grafik veya ses ile ilgili problemlerde, sistemdeki sürücülerin durumunu kontrol etmek için kullanılabilir. Ayrıca, farklı test ortamları arasında sürücü uyumluluğunu karşılaştırmak için de faydalıdır.
 
- Not: Sürücülerle ilgili herhangi bir değişiklik yapmadan önce, sistem yedeği almak ve dikkatli olmak önemlidir.
+### Notlar ve Uyarılar
+* **Yedek ALan:**
+Sürücülerle ilgili herhangi bir değişiklik yapmadan önce sistem yedeği alın. Yanlış bir sürücüyü güncellemek veya kaldırmak, sistem kararsızlığına neden olabilir.
+* **Yönetici Yetkileri:**
+`driverquery` komutunu çalıştırırken tam yetkilere sahip bir kullanıcı hesabı veya yönetici izni gerekebilir.
+* **Güncel Sürücüler:**
+Sistem sürücülerinizin her zaman güncel olduğundan emin olun. Güncellemeleri donanım sağlayıcısının resmi web sitesinden indirin.
 
 ## `getmac` Komutu 
 `getmac` komutu, Windows işletim sistemindeki MAC adresini (Media Access Control) görüntüler. Bu komut, özellikle Unity geliştiricileri mac adreslerini, dizinleri ve diğer bağlantıları kontrol etmek için kullanışlıdır. İşte `getmac` komutunun çeş itli kullanım şekilleri:
@@ -699,10 +729,72 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
    ```
    ![for_komutu](Images/for_file_delete.png "For Komutu")
 
+## `diskpart` Komutu 
+
+`diskpart` komutu, Windows işletim sistemlerinde diskleri, bölümleri ve birimleri yönetmek için kullanılan güçlü bir komut satırı aracıdır. Bu araç sayesinde, diskleri oluşturabilir, silebilir, biçimlendirebilir, bölümler oluşturabilir, boyutlandırabilir ve silebilir, sürücü harfleri atayabilir ve daha birçok disk yönetimi işlemini gerçekleştirebilirsiniz.
+
+`diskpart` komutunu Windows işletim sisteminde kullanmak için, CMD'yi yönetici olarak açmak zorunludur anca yönetici olarak açmazsanız komutu çalıştırdığınızda sizden izin isteyecek. İzin verdiğinizde sizi özel bir komut sanıtı ekranına yönlendirecektir. Komut sanıtı ekranında aksi durum yaşanmadığında her satırda ilk `DISKPART>` yazılır.
+
+`diskpart` komutlarını kullanmak için komut satırına `diskpart` yazılır.
+```DOS
+ diskpart
+ ```
+ ![diskpart_komutu](Images/diskpart.png "diskpart Komutu")
+
+ ### `diskpart` Komutları
+ Not: Bu komutlar diskinizde ki verileri değiştirebilir, bozabilir veya geri dönüşü olmaksızın silebilir. Lütfen bu komutu kullanırken dikkatli olunuz.
+ * `list disk` : Bu komut, disklerin listesini gösterir.
+   ```DOS
+   list disk
+   ```
+   ![list_disk](Images/diskpart_list_disk.png "list disk Komutu")
+
+* `select disk x` : Bu komut, disklerin listesinden belirli bir disk seçmesini sağlar. `x` kısmı, seçilecek diskin numarasını belirtir.
+   ```DOS
+   select disk 2
+   ```
+   ![select_disk](Images/diskpart_select_disk.png "select disk Komutu")
+
+* `list partition` : Bu komut, seçilen diskin bölümlerini listeler.
+   ```DOS
+   list partition
+   ```
+   ![list_partition](Images/diskpart_list_partition.png "list partition Komutu")
+
+* `create partition primary` : Bu komut, bir diskin bölümlerini oluşturur.
+   ```DOS
+   create partition primary
+   ```
+   ![create_partition](Images/diskpart_create_partition.png "create partition Komutu")
+
+* `format fs=ntfs quick` : Bu komut, seçilen diskin bölümlerini formatlar. `fs=ntfs` kısmı, bölümün biçimi, `quick` kısmı, bölümün kısa sürede yeniden yapılandırılmasını sağlar. ntfs yerine fat32 gibi farklı dosya sistemleri de seçebilirsiniz
+   ```DOS
+   format fs=ntfs quick
+   ```
+   ![format_partition](Images/diskpart_format.png "format partition Komutu")
+
+* `assign letter=E` : Bu komut, seçilen diskin bölümlerini sürücü harflerine atar. `letter=E` kısmı, atanan sürücü harfi belirtilir.
+   ```DOS
+   assign letter=E
+   ```
+   ![assign_letter](Images/diskpart_assign_letter.png "assign letter Komutu")
+
+## Kaynaklar
+|Bağlantı Linki|Kaynak|
+|:---:|:---:|
+| [Medium](https://mirzaleka.medium.com/getting-started-with-windows-command-prompt-5e326f894dd0) | ![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white) |
+| [Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands) | ![Microsoft Learn](https://img.shields.io/badge/Microsoft_Learn-258ffa?style=for-the-badge&logo=microsoft&logoColor=white) |
+| [YouTube](https://www.youtube.com/watch?v=_km5A8KC5e0) | ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) |
+
 ## İletişim
 * [LinkedIn](https://www.linkedin.com/in/enes-efe-tokta/ "Click on Enes Efe Tokta's LikedIn connection link.")
 * [GitHub](https://github.com/EnesEfeTokta "Enes Efe Tokta's Github profile.")
 * [Email](enesefetokta009@gamil.com  "Click on Enes Efe Tokta's Email.")
+
+## Katkıda Bulunma
+1. Bu depoyu forklayın.
+2. Kendi özelliğinizi geliştirin (`feature/your-feature-name` dalını oluşturun).
+3. Değişikliklerinizi bu repo ile birleştirmek için bir **Pull Request** oluşturun.
 
 ## Proje Bilgileri
 Bu doküman, Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileri Bölümü'nde yürütülen İşletim Sistemleri dersi kapsamında hazırlanmış bir akademik çalışmadır. Projenin geliştiricisi Enes Efe Tokta tarafından *6 Kasım 2024* ile *18 Kasım 2024* tarihleri arasında titizlikle hazırlanmış ve dersin ilk ara sınav ödevi olarak sunulmuştur.
