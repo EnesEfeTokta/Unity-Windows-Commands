@@ -596,9 +596,9 @@ Bu komutlar, Unity geliştiricilerinin sistem durumunu analiz etmelerine, perfor
 
 * `netsh wlan show interfaces | findstr "SSID" /v`: "/findstr /v" parametresi, sistemdeki tüm ağları listeler ve "SSID" if adesi içerenlerin sadece adlarını listeler ve sadece ağları gösterir.
    ```dos
-   netsh wlan show interfaces | findstr "SSID" /v
+   netsh wlan show interfaces | findstr /v "SSID"
    ```
-   ![netsh_wlan_show_interfaces_komutu](Images/netsh_wlan_show_interfaces_findstr_SSID_v.png "netsh wlan show interfaces findstr SSID /v Komutu ")
+   ![netsh_wlan_show_interfaces_komutu](Images/netsh_wlan_show_interfaces_findstr_v_ssid.png "netsh wlan show interfaces findstr /v SSID Komutu ")
 
 ## `nslookup` Komutu 
 `nslookup` komutu, belirli bir web sitesinin veya etki alanının IP adresini bulmak için "nslookup" komutunu kullanabilirsiniz. İşte `nslookup` komutunun çeşitli kullanım şekili:
@@ -799,23 +799,21 @@ Bu komutların çalışması için CMD 'yi yönetici olarak açılması gerekli.
    ```
    ![select_volume](Images/diskpart_select_volume.png)
 
+### Disk Yönetimi
 * `create partition primary` : Bu komut, bir diskin bölümlerini oluşturur.
    ```dos
    create partition primary
    ```
-   ![create_partition](Images/diskpart_create_partition.png "create partition Komutu")
 
 * `format fs=ntfs quick` : Bu komut, seçilen diskin bölümlerini formatlar. `fs=ntfs` kısmı, bölümün biçimi, `quick` kısmı, bölümün kısa sürede yeniden yapılandırılmasını sağlar. ntfs yerine fat32 gibi farklı dosya sistemleri de seçebilirsiniz
    ```dos
    format fs=ntfs quick
    ```
-   ![format_partition](Images/diskpart_format.png "format partition Komutu")
 
 * `assign letter=E` : Bu komut, seçilen diskin bölümlerini sürücü harflerine atar. `letter=E` kısmı, atanan sürücü harfi belirtilir.
    ```dos
    assign letter=E
    ```
-   ![assign_letter](Images/diskpart_assign_letter.png "assign letter Komutu")
 
 ### Dikkat Edilmesi Gerelenler
 1) **Veri Kaybı Riski:** DiskPart, diskteki verileri kolayca silebilir veya bozabilir. Bu yüzden komutları dikkatli kullanın.
